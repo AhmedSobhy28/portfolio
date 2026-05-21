@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Sobhy | Software Programmer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b1120;
+            --card-bg: #1e293b;
+            --primary-blue: #0ea5e9;
+            --accent-cyan: #00d2ff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-cyan);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* -----------------------------------
+           New Hero Section (Centered Layering)
+           ----------------------------------- */
+        .hero {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 100px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Huge Text Behind the Image */
+        .background-text {
+            position: absolute;
+            top: 22%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: clamp(4rem, 12vw, 12rem);
+            font-weight: 900;
+            color: var(--text-main);
+            white-space: nowrap;
+            z-index: 1;
+            letter-spacing: 2px;
+            text-shadow: 0 15px 30px rgba(0,0,0,0.8);
+            line-height: 1;
+        }
+
+        .background-text span {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--accent-cyan);
+        }
+
+        /* Image and Circle Background Container */
+        .image-wrapper {
+            position: relative;
+            z-index: 2;
+            margin-top: 60px; /* Pushes image down to overlap the text */
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 400px; 
+        }
+
+        /* The glowing circle behind the person */
+        .circle-bg {
+            position: absolute;
+            bottom: 10px;
+            width: 340px;
+            height: 340px;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.6), rgba(0, 210, 255, 0.1));
+            border-radius: 50%;
+            z-index: -1;
+            box-shadow: 0 0 80px rgba(0, 210, 255, 0.3);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        /* The Transparent Profile Image */
+        .image-wrapper img {
+            height: 480px; /* Taller than the circle to create 3D breakout effect */
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.7));
+            transition: 0.3s ease;
+        }
+
+        .image-wrapper img:hover {
+            transform: scale(1.03);
+            filter: drop-shadow(0 25px 40px rgba(0, 210, 255, 0.3));
+        }
+
+        /* Text content below the image */
+        .hero-bottom-text {
+            position: relative;
+            z-index: 3;
+            max-width: 750px;
+            margin-top: 20px;
+        }
+
+        .hero-bottom-text h2 {
+            color: var(--accent-cyan);
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-bottom-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 40px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 210, 255, 0.4);
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .section-title span {
+            color: var(--accent-cyan);
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 100px 8%;
+            background-color: #0f172a;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .project-card {
+            display: flex;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            max-width: 900px;
+            transition: 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.1);
+        }
+
+        .project-icon-area {
+            background: linear-gradient(135deg, var(--card-bg), #0b1120);
+            width: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            color: var(--accent-cyan);
+            border-right: 2px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-content {
+            padding: 40px;
+            flex: 1;
+        }
+
+        .project-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 8%;
+            background-color: var(--bg-color);
+            text-align: center;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .skill-box {
+            background-color: var(--card-bg);
+            padding: 25px 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            min-width: 150px;
+        }
+
+        .skill-box:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.1);
+        }
+
+        .skill-box i {
+            font-size: 3rem;
+            color: var(--accent-cyan);
+        }
+
+        .skill-box h4 {
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 8%;
+            background-color: #0f172a;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-cyan);
+            color: #000;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .background-text { top: 15%; }
+            .image-wrapper { margin-top: 50px; height: 300px; }
+            .circle-bg { width: 260px; height: 260px; bottom: 5px; }
+            .image-wrapper img { height: 360px; }
+            nav { display: none; }
+            .project-card { flex-direction: column; }
+            .project-icon-area {
+                width: 100%;
+                height: 150px;
+                border-right: none;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Ahmed<span>.</span>Dev</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1 class="background-text">AHMED <span>SOBHY</span></h1>
+        
+        <div class="image-wrapper">
+            <div class="circle-bg"></div>
+            <img src="profile.png" alt="Ahmed Sobhy - Software Programmer">
+        </div>
+
+        <div class="hero-bottom-text">
+            <h2>Software Programmer</h2>
+            <p>A passionate Software Programmer specializing in building clean, scalable, and efficient software solutions. I turn complex problems into elegant systems, focusing on performance, security, and exceptional user experiences.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title">My <span>Projects</span></h2>
+        
+        <div class="projects-list">
+            <div class="project-card">
+                <div class="project-icon-area"><i class="fas fa-user-graduate"></i></div>
+                <div class="project-content">
+                    <h3>Students Management System</h3>
+                    <p>A comprehensive system designed to manage student data, academic records, and administrative tasks efficiently with a user-friendly dashboard.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon-area"><i class="fas fa-cloud-sun-rain"></i></div>
+                <div class="project-content">
+                    <h3>Weather Advanced App</h3>
+                    <p>An advanced weather forecasting application providing real-time data, detailed climate analytics, and location-based alerts using external APIs.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon-area"><i class="fas fa-chart-line"></i></div>
+                <div class="project-content">
+                    <h3>Data Analysis for Small Companies</h3>
+                    <p>A data processing tool that helps small businesses analyze their sales and performance metrics to make informed, data-driven decisions.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon-area"><i class="fas fa-laptop-code"></i></div>
+                <div class="project-content">
+                    <h3>Courses Website</h3>
+                    <p>An educational platform that allows instructors to upload course materials and enables students to enroll, track progress, and learn online.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon-area"><i class="fas fa-gamepad"></i></div>
+                <div class="project-content">
+                    <h3>Mario Game</h3>
+                    <p>A customized web-based clone of the classic Mario game, built using modern web technologies to demonstrate physics and game logic programming.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon-area"><i class="fas fa-shield-alt"></i></div>
+                <div class="project-content">
+                    <h3>Simple App for Checking Websites Security</h3>
+                    <p>A utility application designed to scan websites for basic vulnerabilities, SSL certificate validation, and general security health checks.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon-area"><i class="fas fa-calendar-check"></i></div>
+                <div class="project-content">
+                    <h3>College Attendance System</h3>
+                    <p>An automated attendance tracking system for colleges, streamlining the recording process for professors and providing precise reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2 class="section-title">My <span>Skills</span> & Languages</h2>
+        
+        <h3 style="margin-bottom: 30px; font-size: 1.5rem; color: var(--text-muted);">Technical Skills</h3>
+        <div class="skills-container">
+            <div class="skill-box"><i class="fab fa-python"></i><h4>Python</h4></div>
+            <div class="skill-box"><i class="fab fa-js-square"></i><h4>JavaScript</h4></div>
+            <div class="skill-box"><i class="fab fa-react"></i><h4>React</h4></div>
+            <div class="skill-box"><i class="fab fa-node"></i><h4>Node.js</h4></div>
+            <div class="skill-box"><i class="fas fa-database"></i><h4>Databases</h4></div>
+            <div class="skill-box"><i class="fas fa-code-branch"></i><h4>Git / GitHub</h4></div>
+            <div class="skill-box"><i class="fas fa-server"></i><h4>API Development</h4></div>
+        </div>
+
+        <h3 style="margin-bottom: 30px; font-size: 1.5rem; color: var(--text-muted);">Languages</h3>
+        <div class="skills-container">
+            <div class="skill-box"><i class="fas fa-language"></i><h4>Arabic (Native)</h4></div>
+            <div class="skill-box"><i class="fas fa-globe"></i><h4>English (Fluent)</h4></div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Let's <span>Work</span> Together</h2>
+        <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+            Feel free to reach out for collaborations or just a friendly hello. Let's build something amazing together!
+        </p>
+
+        <div class="social-links">
+            <a href="https://wa.me/qr/MST3YDIQAQB4I1" target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/ahmed-sobhy-mohamed-150643279" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/share/1CgY3DFGvc/" target="_blank" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/ahmed.sobhy._?igsh=djVkcGoxcWpmZGtz" target="_blank" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <a href="mailto:your-email@example.com" class="btn">Send an Email</a>
+        
+        <p style="margin-top: 50px; font-size: 0.9rem; color: var(--text-muted);">
+            &copy; 2026 Developed by Ahmed Sobhy. All rights reserved.
+        </p>
+    </section>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateX(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .skill-box').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateX(-30px)";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
