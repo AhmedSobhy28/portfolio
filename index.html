@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Sobhy | Software Programmer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -62,9 +64,15 @@
             color: var(--text-main);
             letter-spacing: 1px;
         }
-        .logo span { color: var(--accent-cyan); }
 
-        nav { display: flex; gap: 15px; }
+        .logo span {
+            color: var(--accent-cyan);
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
 
         nav a {
             display: inline-block;
@@ -76,15 +84,8 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 1rem;
             font-weight: 600;
-            transition: transform 0.15s ease-out, background 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.15s ease-out, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
             will-change: transform;
-        }
-
-        nav a:hover {
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
-            border-color: var(--accent-cyan);
-            color: #fff;
         }
 
         .menu-toggle {
@@ -114,7 +115,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transform: translateY(-100%);
             transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            pointer-events: none; 
+            pointer-events: none;
         }
 
         .floating-name-container.visible {
@@ -127,14 +128,25 @@
             font-weight: 900;
             color: var(--text-main);
             letter-spacing: 2px;
-            text-shadow: 0 10px 20px rgba(0,0,0,0.8);
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
         }
-        .floating-name span { color: transparent; -webkit-text-stroke: 1px var(--accent-cyan); }
 
-        .floating-menu-toggle { position: absolute; right: 8%; display: none; font-size: 1.5rem; color: var(--text-main); cursor: pointer; }
+        .floating-name span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--accent-cyan);
+        }
+
+        .floating-menu-toggle {
+            position: absolute;
+            right: 8%;
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+        }
 
         /* -----------------------------------
-           Hero Section (Page Load Animations)
+           Hero Section (Entrance Animations)
            ----------------------------------- */
         .hero {
             position: relative;
@@ -160,28 +172,37 @@
             white-space: nowrap;
             z-index: 1;
             letter-spacing: 2px;
-            text-shadow: 0 15px 30px rgba(0,0,0,0.8);
+            text-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
             line-height: 1;
             transition: opacity 0.4s ease;
-            
-            /* أنيميشن الظهور للاسم الكبير */
             opacity: 0;
             animation: fadeInBigText 1s ease-out forwards;
             animation-delay: 0.5s;
         }
-        @keyframes fadeInBigText { to { opacity: 1; } }
 
-        .background-text.hidden { opacity: 0; }
-        .background-text span { color: transparent; -webkit-text-stroke: 2px var(--accent-cyan); }
+        @keyframes fadeInBigText {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .background-text.hidden {
+            opacity: 0;
+        }
+
+        .background-text span {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--accent-cyan);
+        }
 
         .image-wrapper {
             position: relative;
             z-index: 2;
-            margin-top: 60px; 
+            margin-top: 60px;
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            height: 400px; 
+            height: 400px;
             width: 100%;
         }
 
@@ -198,24 +219,29 @@
         }
 
         .image-wrapper img {
-            height: 480px; 
+            height: 480px;
             width: auto;
             max-width: 95%;
             object-fit: contain;
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.7));
-            
-            /* تأثير الطيران من فوق للصورة عند فتح الموقع */
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.7));
             transform: translateY(-150vh);
             animation: dropImageIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+            will-change: transform, filter;
         }
 
         @keyframes dropImageIn {
-            to { transform: translateY(0); }
+            to {
+                transform: translateY(0);
+            }
         }
 
         @media (hover: hover) and (pointer: fine) {
+            .image-wrapper img {
+                transition: transform 0.3s ease, filter 0.3s ease;
+            }
+
             .image-wrapper img:hover {
-                transform: scale(1.03) translateZ(0); 
+                transform: scale(1.03) translateZ(0);
                 filter: drop-shadow(0 25px 40px rgba(0, 210, 255, 0.3));
             }
         }
@@ -226,15 +252,17 @@
             max-width: 750px;
             margin-top: 20px;
             padding: 0 15px;
-            
-            /* تأثير الصعود التدريجي للنصوص السفلى */
             opacity: 0;
             transform: translateY(40px);
             animation: slideUpTexts 1s ease-out forwards;
             animation-delay: 0.8s;
         }
+
         @keyframes slideUpTexts {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-bottom-text h2 {
@@ -272,160 +300,338 @@
             z-index: 1;
         }
 
-        @media (hover: hover) {
+        /* -----------------------------------
+           Hover Effects (التوهج والماوس)
+           ----------------------------------- */
+        @media (hover: hover) and (pointer: fine) {
+
+            nav a:hover,
             .btn:hover {
                 background-position: right center;
-                transform: translateY(-5px);
-                box-shadow: 0 15px 25px rgba(0, 210, 255, 0.4), 0 0 30px rgba(0, 210, 255, 0.6);
+                border-color: var(--accent-cyan);
+                box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+                color: #fff;
+            }
+
+            .btn:hover {
+                transform: translateY(-5px) scale(1.05);
+            }
+
+            .project-card:hover,
+            .skill-box:hover {
+                border-color: var(--accent-cyan) !important;
+                box-shadow: 0 25px 50px rgba(0, 210, 255, 0.15) !important;
+            }
+
+            .skill-box:hover h4 {
+                transform: translateZ(25px);
+            }
+
+            /* تأثير التوهج لأيقونات التواصل الاجتماعي */
+            .social-icon:hover {
+                background-color: var(--accent-cyan);
+                color: #000;
+                border-color: var(--accent-cyan);
+                transform: translateY(-5px) scale(1.15);
+                box-shadow: 0 0 25px rgba(0, 210, 255, 0.6), 0 10px 20px rgba(0, 210, 255, 0.4);
             }
         }
 
         /* -----------------------------------
-           Projects Section (Alternating Flight)
+           Entrance Animations (خصائص الطيران الأساسية)
            ----------------------------------- */
-        .section-title { text-align: center; font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 60px; color: var(--text-main); font-weight: 800; }
-        .section-title span { color: var(--accent-cyan); }
-        .projects { padding: 100px 8%; background-color: #0f172a; }
-        .projects-list { display: flex; flex-direction: column; gap: 50px; align-items: center; perspective: 1000px; width: 100%; }
-        
+        .tilt-card,
+        .skill-box,
+        #contact-wrapper {
+            will-change: transform, opacity;
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .project-card.fly-right {
+            transform: translateX(150px);
+        }
+
+        .project-card.fly-left {
+            transform: translateX(-150px);
+        }
+
+        .project-card.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .skill-box {
+            transform: translateY(60px);
+        }
+
+        .skill-box.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #contact-wrapper {
+            transform: scale(0.8);
+        }
+
+        #contact-wrapper.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* -----------------------------------
+           Structure & Details
+           ----------------------------------- */
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: 60px;
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .section-title span {
+            color: var(--accent-cyan);
+        }
+
+        .projects {
+            padding: 100px 8%;
+            background-color: #0f172a;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            align-items: center;
+            perspective: 1000px;
+            width: 100%;
+        }
+
         .project-card {
             display: flex;
             background-color: var(--card-bg);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             width: 100%;
-            max-width: 900px; 
+            max-width: 900px;
             transform-style: preserve-3d;
             overflow: hidden;
-            
-            /* خصائص التحكم في حركات الدخول عبر الـ JS */
-            opacity: 0;
-            will-change: transform, opacity;
-            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        /* الكروت الفردية (الأول، التالت، الخامس..) هتبدأ من اليمين */
-        .project-card.fly-right {
-            transform: translateX(150px);
-        }
-
-        /* الكروت الزوجية (التاني، الرابع..) هتبدأ من الشمال */
-        .project-card.fly-left {
-            transform: translateX(-150px);
-        }
-
-        /* الكلاس اللي هيتضاف بالـ JS لما السكرول يوصل للكارت عشان يرجعه مكانه الطبيعي */
-        .project-card.active {
-            opacity: 1;
-            transform: translateX(0) !important;
         }
 
         .project-icon-area {
-            background: linear-gradient(135deg, var(--card-bg), #0b1120); width: 250px;
-            display: flex; justify-content: center; align-items: center; font-size: 4rem;
-            color: var(--accent-cyan); border-right: 2px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, var(--card-bg), #0b1120);
+            width: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            color: var(--accent-cyan);
+            border-right: 2px solid rgba(255, 255, 255, 0.05);
             transform: translateZ(30px);
-            min-height: 200px; 
+            min-height: 200px;
         }
 
-        .project-content { padding: 40px; flex: 1; transform: translateZ(20px); }
-        .project-content h3 { font-size: 1.6rem; margin-bottom: 10px; }
-        .project-content p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
-        
-        /* -----------------------------------
-           Skills Section (Wave Slide-Up Animation)
-           ----------------------------------- */
-        .skills { padding: 100px 8%; background-color: var(--bg-color); text-align: center; perspective: 1000px; }
-        .skills-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 60px; }
-        
+        .project-content {
+            padding: 40px;
+            flex: 1;
+            transform: translateZ(20px);
+        }
+
+        .project-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .skills {
+            padding: 100px 8%;
+            background-color: var(--bg-color);
+            text-align: center;
+            perspective: 1000px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
         .skill-box {
-            background-color: var(--card-bg); padding: 25px 40px; border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            display: flex; flex-direction: column; align-items: center; gap: 15px; min-width: 150px;
-            transform-style: preserve-3d;
-            will-change: transform, opacity;
-            
-            /* تبدأ مختفية ونازلة لتحت تمهيداً للطيران لمكانها */
-            opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2);
-        }
-
-        /* كلاس الاستقرار للمهارات */
-        .skill-box.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .skill-box i { font-size: 3.5rem; color: var(--accent-cyan); transform: translateZ(40px); transition: transform 0.3s ease; }
-        .skill-box h4 { font-size: 1.1rem; transform: translateZ(25px); transition: transform 0.3s ease; }
-        
-        /* -----------------------------------
-           Contact Section (Zoom In Animation)
-           ----------------------------------- */
-        .contact { padding: 100px 8%; background-color: #0f172a; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-        
-        .contact-animate-wrapper {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            will-change: transform, opacity;
-        }
-        
-        .contact-animate-wrapper.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .social-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; margin-top: 40px; margin-bottom: 40px; }
-        .social-icon {
-            width: 60px; height: 60px; border-radius: 50%; background-color: var(--card-bg);
-            display: flex; justify-content: center; align-items: center; font-size: 1.8rem;
-            color: var(--text-main); text-decoration: none; transition: transform 0.3s ease, background-color 0.3s ease;
+            background-color: var(--card-bg);
+            padding: 25px 40px;
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            min-width: 150px;
+            transform-style: preserve-3d;
         }
-        
-        @media (hover: hover) {
-            .social-icon:hover { background-color: var(--accent-cyan); color: #000; transform: translateY(-5px) scale(1.1); box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3); }
+
+        .skill-box i {
+            font-size: 3.5rem;
+            color: var(--accent-cyan);
+            transform: translateZ(0);
+            transition: transform 0.6s ease;
+        }
+
+        .skill-box h4 {
+            font-size: 1.1rem;
+            transform: translateZ(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact {
+            padding: 100px 8%;
+            background-color: #0f172a;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* أيقونات التواصل */
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* -----------------------------------
            MOBILE RESPONSIVENESS
            ----------------------------------- */
         @media (max-width: 900px) {
-            header { padding: 20px 5%; }
-            .menu-toggle { display: block; }
-            .floating-menu-toggle { display: block; }
-            
+            header {
+                padding: 20px 5%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .floating-menu-toggle {
+                display: block;
+            }
+
             nav {
-                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-                background: rgba(11, 17, 32, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-                flex-direction: column; justify-content: center; align-items: center; gap: 30px;
-                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1001;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(11, 17, 32, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1001;
                 border-left: 1px solid rgba(255, 255, 255, 0.05);
             }
-            nav.active { right: 0; }
-            nav a { width: 80%; text-align: center; padding: 15px; font-size: 1.2rem; }
 
-            .background-text { top: 12%; font-size: clamp(3rem, 15vw, 4.5rem); }
-            .image-wrapper { margin-top: 50px; height: 320px; }
-            .circle-bg { width: 250px; height: 250px; bottom: 5px; }
-            .image-wrapper img { height: 380px; }
-            
-            .projects, .skills, .contact { padding: 80px 5%; }
-            
-            /* الموبايل يفضل محتفظ بطيران اليمين والشمال عشان الشاشة تظهر حركتها شيك جداً وبدون مشاكل */
-            .project-card { flex-direction: column; }
-            .project-icon-area { width: 100%; height: 180px; border-right: none; border-bottom: 2px solid rgba(255, 255, 255, 0.05); transform: translateZ(0); }
-            .project-content { padding: 25px; transform: translateZ(0); text-align: center;}
-            
-            .skill-box { min-width: 130px; padding: 20px 15px; }
-            .skill-box i, .skill-box h4 { transform: translateZ(0); } 
-            
-            .floating-name { font-size: 1.4rem; margin-right: 40px; } 
+            nav.active {
+                right: 0;
+            }
+
+            nav a {
+                width: 80%;
+                text-align: center;
+                padding: 15px;
+                font-size: 1.2rem;
+            }
+
+            .background-text {
+                top: 12%;
+                font-size: clamp(3rem, 15vw, 4.5rem);
+            }
+
+            .image-wrapper {
+                margin-top: 50px;
+                height: 320px;
+            }
+
+            .circle-bg {
+                width: 250px;
+                height: 250px;
+                bottom: 5px;
+            }
+
+            .image-wrapper img {
+                height: 380px;
+                animation-duration: 1.5s;
+            }
+
+            .projects,
+            .skills,
+            .contact {
+                padding: 80px 5%;
+            }
+
+            .project-card {
+                flex-direction: column;
+                transform: none !important;
+            }
+
+            .project-icon-area {
+                width: 100%;
+                height: 180px;
+                border-right: none;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+                transform: translateZ(0);
+            }
+
+            .project-content {
+                padding: 25px;
+                transform: translateZ(0);
+                text-align: center;
+            }
+
+            .skill-box {
+                min-width: 130px;
+                padding: 20px 15px;
+                transform: none !important;
+            }
+
+            .skill-box i,
+            .skill-box h4 {
+                transform: translateZ(0) !important;
+            }
+
+            .floating-name {
+                font-size: 1.4rem;
+                margin-right: 40px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="floating-name-container" id="floating-bar">
@@ -446,7 +652,7 @@
 
     <section id="home" class="hero">
         <h1 class="background-text" id="bg-text">AHMED <span>SOBHY</span></h1>
-        
+
         <div class="image-wrapper">
             <div class="circle-bg"></div>
             <img src="profile.png" alt="Ahmed Sobhy - Software Programmer">
@@ -454,7 +660,9 @@
 
         <div class="hero-bottom-text">
             <h2>Software Programmer</h2>
-            <p>A passionate Software Programmer specializing in building clean, scalable, and efficient software solutions. I turn complex problems into elegant systems, focusing on performance, security, and exceptional user experiences.</p>
+            <p>A passionate Software Programmer specializing in building clean, scalable, and efficient software
+                solutions. I turn complex problems into elegant systems, focusing on performance, security, and
+                exceptional user experiences.</p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
@@ -462,13 +670,65 @@
     <section id="projects" class="projects">
         <h2 class="section-title">My <span>Projects</span></h2>
         <div class="projects-list">
-            <div class="project-card"><div class="project-icon-area"><i class="fas fa-user-graduate"></i></div><div class="project-content"><h3>Students Management System</h3><p>A comprehensive system designed to manage student data, academic records, and administrative tasks efficiently with a user-friendly dashboard.</p></div></div>
-            <div class="project-card"><div class="project-icon-area"><i class="fas fa-cloud-sun-rain"></i></div><div class="project-content"><h3>Weather Advanced App</h3><p>An advanced weather forecasting application providing real-time data, detailed climate analytics, and location-based alerts using external APIs.</p></div></div>
-            <div class="project-card"><div class="project-icon-area"><i class="fas fa-chart-line"></i></div><div class="project-content"><h3>Data Analysis for Small Companies</h3><p>A data processing tool that helps small businesses analyze their sales and performance metrics to make informed, data-driven decisions.</p></div></div>
-            <div class="project-card"><div class="project-icon-area"><i class="fas fa-laptop-code"></i></div><div class="project-content"><h3>Courses Website</h3><p>An educational platform that allows instructors to upload course materials and enables students to enroll, track progress, and learn online.</p></div></div>
-            <div class="project-card"><div class="project-icon-area"><i class="fas fa-gamepad"></i></div><div class="project-content"><h3>Mario Game</h3><p>A customized web-based clone of the classic Mario game, built using modern web technologies to demonstrate physics and game logic programming.</p></div></div>
-            <div class="project-card"><div class="project-icon-area"><i class="fas fa-shield-alt"></i></div><div class="project-content"><h3>Simple App for Checking Websites Security</h3><p>A utility application designed to scan websites for basic vulnerabilities, SSL certificate validation, and general security health checks.</p></div></div>
-            <div class="project-card"><div class="project-icon-area"><i class="fas fa-calendar-check"></i></div><div class="project-content"><h3>College Attendance System</h3><p>An automated attendance tracking system for colleges, streamlining the recording process for professors and providing precise reports.</p></div></div>
+            <a href="weather-app/index.html" target="_blank" class="project-card tilt-card"
+                style="text-decoration: none; color: var(--text-main);">
+                <div class="project-icon-area"><i class="fas fa-cloud-sun-rain"></i></div>
+                <div class="project-content">
+                    <h3>Weather Advanced App</h3>
+                    <p>An advanced weather forecasting application providing real-time data, detailed climate analytics,
+                        and location-based alerts using external APIs.</p>
+                </div>
+            </a>
+            <a href="student-system/index.html" target="_blank" class="project-card tilt-card"
+                style="text-decoration: none; color: var(--text-main);">
+                <div class="project-icon-area"><i class="fas fa-users-cog"></i></div>
+                <div class="project-content">
+                    <h3>BTC Student System</h3>
+                    <p>A comprehensive system designed to manage student data, academic records, and administrative
+                        tasks efficiently with a user-friendly dashboard.</p>
+                </div>
+            </a>
+            <a href="data-analysis/index.html" target="_blank" class="project-card tilt-card"
+                style="text-decoration: none; color: var(--text-main);">
+                <div class="project-icon-area"><i class="fas fa-chart-line"></i></div>
+                <div class="project-content">
+                    <h3>Data Analysis for Small Companies</h3>
+                    <p>A data processing tool that helps small businesses analyze their sales and performance metrics to
+                        make informed, data-driven decisions.</p>
+                </div>
+            </a>
+            <div class="project-card tilt-card">
+                <div class="project-icon-area"><i class="fas fa-laptop-code"></i></div>
+                <div class="project-content">
+                    <h3>Courses Website</h3>
+                    <p>An educational platform that allows instructors to upload course materials and enables students
+                        to enroll, track progress, and learn online.</p>
+                </div>
+            </div>
+            <div class="project-card tilt-card">
+                <div class="project-icon-area"><i class="fas fa-gamepad"></i></div>
+                <div class="project-content">
+                    <h3>Mario Game</h3>
+                    <p>A customized web-based clone of the classic Mario game, built using modern web technologies to
+                        demonstrate physics and game logic programming.</p>
+                </div>
+            </div>
+            <div class="project-card tilt-card">
+                <div class="project-icon-area"><i class="fas fa-shield-alt"></i></div>
+                <div class="project-content">
+                    <h3>Simple App for Checking Websites Security</h3>
+                    <p>A utility application designed to scan websites for basic vulnerabilities, SSL certificate
+                        validation, and general security health checks.</p>
+                </div>
+            </div>
+            <div class="project-card tilt-card">
+                <div class="project-icon-area"><i class="fas fa-calendar-check"></i></div>
+                <div class="project-content">
+                    <h3>College Attendance System</h3>
+                    <p>An automated attendance tracking system for colleges, streamlining the recording process for
+                        professors and providing precise reports.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -476,18 +736,36 @@
         <h2 class="section-title">My <span>Skills</span> & Languages</h2>
         <h3 style="margin-bottom: 30px; font-size: 1.5rem; color: var(--text-muted);">Technical Skills</h3>
         <div class="skills-container">
-            <div class="skill-box"><i class="fab fa-python"></i><h4>Python</h4></div>
-            <div class="skill-box"><i class="fab fa-js-square"></i><h4>JavaScript</h4></div>
-            <div class="skill-box"><i class="fab fa-react"></i><h4>React</h4></div>
-            <div class="skill-box"><i class="fab fa-node"></i><h4>Node.js</h4></div>
-            <div class="skill-box"><i class="fas fa-database"></i><h4>Databases</h4></div>
-            <div class="skill-box"><i class="fas fa-code-branch"></i><h4>Git / GitHub</h4></div>
-            <div class="skill-box"><i class="fas fa-server"></i><h4>API Development</h4></div>
+            <div class="skill-box tilt-card"><i class="fab fa-python"></i>
+                <h4>Python</h4>
+            </div>
+            <div class="skill-box tilt-card"><i class="fab fa-js-square"></i>
+                <h4>JavaScript</h4>
+            </div>
+            <div class="skill-box tilt-card"><i class="fab fa-react"></i>
+                <h4>React</h4>
+            </div>
+            <div class="skill-box tilt-card"><i class="fab fa-node"></i>
+                <h4>Node.js</h4>
+            </div>
+            <div class="skill-box tilt-card"><i class="fas fa-database"></i>
+                <h4>Databases</h4>
+            </div>
+            <div class="skill-box tilt-card"><i class="fas fa-code-branch"></i>
+                <h4>Git / GitHub</h4>
+            </div>
+            <div class="skill-box tilt-card"><i class="fas fa-server"></i>
+                <h4>API Development</h4>
+            </div>
         </div>
         <h3 style="margin-bottom: 30px; font-size: 1.5rem; color: var(--text-muted);">Languages</h3>
         <div class="skills-container">
-            <div class="skill-box"><i class="fas fa-language"></i><h4>Arabic (Native)</h4></div>
-            <div class="skill-box"><i class="fas fa-globe"></i><h4>English (Fluent)</h4></div>
+            <div class="skill-box tilt-card"><i class="fas fa-language"></i>
+                <h4>Arabic (Native)</h4>
+            </div>
+            <div class="skill-box tilt-card"><i class="fas fa-globe"></i>
+                <h4>English (Fluent)</h4>
+            </div>
         </div>
     </section>
 
@@ -495,15 +773,21 @@
         <div class="contact-animate-wrapper" id="contact-wrapper">
             <h2 class="section-title">Let's <span>Work</span> Together</h2>
             <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
-                Feel free to reach out for collaborations or just a friendly hello. Let's build something amazing together!
+                Feel free to reach out for collaborations or just a friendly hello. Let's build something amazing
+                together!
             </p>
             <div class="social-links">
-                <a href="#" target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" target="_blank" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/qr/MST3YDIQAQB4I1" target="_blank" class="social-icon" title="WhatsApp"><i
+                        class="fab fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/ahmed-sobhy-mohamed-150643279" target="_blank" class="social-icon"
+                    title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/share/1CgY3DFGvc/" target="_blank" class="social-icon"
+                    title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/ahmed.sobhy._?igsh=djVkcGoxcWpmZGtz" target="_blank"
+                    class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
-            <a href="mailto:ah.sobhy07@gmail.com" class="btn">Send an Email</a>
+
+            <a href="mailto:ah.sobhy07@gmail.com?subject=Hello Ahmed! I saw your portfolio" class="btn">Send an Email</a>
         </div>
         <p style="margin-top: 50px; font-size: 0.9rem; color: var(--text-muted);">
             &copy; 2026 Developed by Ahmed Sobhy. All rights reserved.
@@ -537,11 +821,11 @@
             });
         });
 
-        // 2. Scroll Animation for Floating Top Bar
+        // 2. Scroll Animation for Floating Name Bar
         const header = document.getElementById('main-header');
         const floatingBar = document.getElementById('floating-bar');
         const bgText = document.getElementById('bg-text');
-        
+
         let isScrolled = false;
         let scrollTimeout;
 
@@ -549,30 +833,30 @@
             if (scrollTimeout) window.cancelAnimationFrame(scrollTimeout);
             scrollTimeout = window.requestAnimationFrame(() => {
                 if (window.scrollY > 120 && !isScrolled) {
-                    header.classList.add('header-scrolled'); 
-                    floatingBar.classList.add('visible');    
+                    header.classList.add('header-scrolled');
+                    floatingBar.classList.add('visible');
                     bgText.classList.add('hidden');
                     isScrolled = true;
                 } else if (window.scrollY <= 120 && isScrolled) {
-                    header.classList.remove('header-scrolled'); 
-                    floatingBar.classList.remove('visible');    
+                    header.classList.remove('header-scrolled');
+                    floatingBar.classList.remove('visible');
                     bgText.classList.remove('hidden');
                     isScrolled = false;
                 }
             });
         }, { passive: true });
 
-        // 3. Setup Alternating Fly Directions for Projects via JS dynamically
+        // 3. Setup Alternating Fly Directions dynamically
         const projectCards = document.querySelectorAll('.project-card');
         projectCards.forEach((card, index) => {
             if (index % 2 === 0) {
-                card.classList.add('fly-right'); // الكروت الفردية برمجياً
+                card.classList.add('fly-right');
             } else {
-                card.classList.add('fly-left');  // الكروت الزوجية برمجياً
+                card.classList.add('fly-left');
             }
         });
 
-        // 4. Desktop Mouse Tracking Hover Effects (Magnetic & 3D Tilt)
+        // 4. Desktop Mouse Tracking (Magnetic, 3D Tilt & Inner Icon Parallax)
         const isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
         if (isDesktop) {
@@ -589,69 +873,93 @@
                     btn.style.transform = `translate(0px, 0px) scale(1)`;
                 });
             });
-
-            // 3D Tilt function for Elements AFTER they fly into position
-            const apply3DTilt = (card) => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left; 
-                    const y = e.clientY - rect.top;  
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const isSkillBox = card.classList.contains('skill-box');
-                    const tiltDegree = isSkillBox ? 12 : 8; 
-                    const scaleAmount = isSkillBox ? 1.08 : 1.02;
-
-                    const rotateX = ((y - centerY) / centerY) * -tiltDegree;
-                    const rotateY = ((x - centerX) / centerX) * tiltDegree;
-                    
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${scaleAmount}, ${scaleAmount}, ${scaleAmount})`;
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                });
-            };
         }
 
-        // 5. Intersection Observer for Scroll Triggered Entrance Animations
+        // دالة الـ 3D المستقلة (شاملة حركة الأيقونة اللي جوه بوكس المهارات)
+        const apply3DTilt = (card) => {
+            // بنبحث عن الأيقونة جوه الكارت (لو كان ده بوكس المهارات)
+            const innerIcon = card.querySelector('i');
+
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const isSkillBox = card.classList.contains('skill-box');
+                const tiltDegree = isSkillBox ? 15 : 8;
+                const scaleAmount = isSkillBox ? 1.08 : 1.02;
+
+                const rotateX = ((y - centerY) / centerY) * -tiltDegree;
+                const rotateY = ((x - centerX) / centerX) * tiltDegree;
+
+                // تطبيق دوران الـ 3D للكارت نفسه
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${scaleAmount}, ${scaleAmount}, ${scaleAmount})`;
+
+                // تحريك الأيقونة اللي جوه البوكس يمين وشمال مع الماوس (Parallax Effect)
+                if (isSkillBox && innerIcon) {
+                    // معامل الضرب (0.25) بيحدد الأيقونة هتتحرك لمسافة قد إيه بالنسبة للماوس
+                    const iconX = (x - centerX) * 0.25;
+                    const iconY = (y - centerY) * 0.25;
+                    // بندمج حركة الـ X والـ Y مع بروزها الأساسي اللي هو 40px في محور الـ Z
+                    innerIcon.style.transform = `translate3d(${iconX}px, ${iconY}px, 40px)`;
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // إرجاع الكارت لوضع الاستقرار
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                // إرجاع الأيقونة اللي جوه الكارت للوضع الأساسي
+                if (innerIcon && card.classList.contains('skill-box')) {
+                    innerIcon.style.transform = `translate3d(0, 0, 0)`;
+                }
+            });
+        };
+
+        // 5. Intersection Observer (Flying Entrance + Linking 3D)
         const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
-        
+
         const scrollObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active'); // تفعيل أنيميشن الطيران للمكان المستهدف
-                    
-                    // لو شاشة كمبيوتر، فعل تأثير الـ 3D التتبعي بعد انتهاء حركة الطيران الأصلية
-                    if (isDesktop && (entry.target.classList.contains('project-card') || entry.target.classList.contains('skill-box'))) {
+                    // تفعيل الطيران لمكانها
+                    entry.target.classList.add('active');
+
+                    // لو ده لابتوب، هننتظر لحد ما الطيران يخلص وبعدين نسرّع الترانزيشن ونشغل الماوس
+                    if (isDesktop && entry.target.classList.contains('tilt-card')) {
                         setTimeout(() => {
-                            if(entry.target.classList.contains('project-card')) {
-                                entry.target.style.transition = "transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease";
+                            if (entry.target.classList.contains('project-card')) {
+                                entry.target.style.transition = "transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease";
                             } else {
-                                entry.target.style.transition = "transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease";
+                                entry.target.style.transition = "transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease";
+                                // تسريع ترانزيشن الأيقونة اللي جوه بوكس المهارات عشان تتفاعل بسرعة مع الماوس
+                                const icon = entry.target.querySelector('i');
+                                if (icon) icon.style.transition = "transform 0.1s ease-out";
                             }
-                            if (typeof apply3DTilt === "function") apply3DTilt(entry.target);
-                        }, 800); // الانتظار 800 مللي ثانية (زمن حركية الطيران)
+                            // تشغيل التتبع 
+                            apply3DTilt(entry.target);
+                        }, 800); // 800ms هو وقت أنيميشن الدخول في الـ CSS
                     }
-                    observer.unobserve(entry.target); // إيقاف المراقبة للعنصر بعد استقراره
+
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // مراقبة كروت المشاريع
-        projectCards.forEach(card => scrollObserver.observe(card));
+        // تفعيل المراقبة للكروت والمهارات والتواصل
+        document.querySelectorAll('.tilt-card').forEach(el => scrollObserver.observe(el));
 
-        // مراقبة بوكسات المهارات وإضافة تأثير الموجة (Stagger) برمجياً عبر الـ Delay
         const skillBoxes = document.querySelectorAll('.skill-box');
         skillBoxes.forEach((box, index) => {
-            // كل بوكس يتأخر عن اللي قبله بـ 50 مللي ثانية لعمل تأثير تموج رائع أثناء الصعود
-            box.style.transitionDelay = `${(index % 4) * 0.08}s`; 
+            box.style.transitionDelay = `${(index % 4) * 0.08}s`;
             scrollObserver.observe(box);
         });
 
-        // مراقبة سكشن التواصل
         const contactWrapper = document.getElementById('contact-wrapper');
-        if(contactWrapper) scrollObserver.observe(contactWrapper);
+        if (contactWrapper) scrollObserver.observe(contactWrapper);
+
     </script>
 </body>
+
 </html>
