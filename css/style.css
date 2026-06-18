@@ -251,10 +251,17 @@ section { padding: 8rem 0; }
     }
     
     .hero-image-wrapper { 
-        width: 60vw !important; /* تم التصغير من 90 لـ 60 لتناسب الكوكب */
-        max-width: 260px !important; 
-        margin-top: 8vh !important; /* دفع الصورة للأسفل لترتكز على الحافة السفلية */
-        user-select: none; /* منع تحديد الصورة بالخطأ */
+        width: 50vw !important; 
+        min-width: 200px !important;
+        max-width: 240px !important; 
+        margin-top: 0 !important;
+        transform: translateY(12vh) !important; /* هذا السطر هو الذي سيدفعها للأسفل لترتكز على الكوكب */
+    }
+
+    /* 2. تحريك النص قليلاً ليتناسب مع المكان الجديد للصورة */
+    .hero-name-bg, .hero-name-fg {
+        font-size: 14vw !important;
+        transform: translate(-50%, -50%) translateY(4vh) !important;
     }
 
     /* 3. تعديل حجم أيقونات التقنيات لتخفيف الزحمة على الشاشة */
