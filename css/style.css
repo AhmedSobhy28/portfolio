@@ -1,3 +1,11 @@
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    scroll-behavior: smooth; 
+    -webkit-tap-highlight-color: transparent; /* هذا السطر يلغي المستطيل الأزرق تماماً */
+}
+
 :root {
     --bg-main: #0B0F13;
     --bg-surface: rgba(18, 24, 31, 0.6);
@@ -242,11 +250,11 @@ section { padding: 8rem 0; }
         letter-spacing: -1px;
     }
     
-    /* 2. تكبير حجم الصورة: لتأخذ مساحة مناسبة مقارنة بالكوكب وتبرز بشكل أفضل */
     .hero-image-wrapper { 
-        width: 90vw !important; /* تأخذ 90% من عرض الشاشة */
-        max-width: 450px !important; 
-        margin-top: 5vh; /* تظبط مكانها مع النص */
+        width: 60vw !important; /* تم التصغير من 90 لـ 60 لتناسب الكوكب */
+        max-width: 260px !important; 
+        margin-top: 8vh !important; /* دفع الصورة للأسفل لترتكز على الحافة السفلية */
+        user-select: none; /* منع تحديد الصورة بالخطأ */
     }
 
     /* 3. تعديل حجم أيقونات التقنيات لتخفيف الزحمة على الشاشة */
