@@ -113,12 +113,24 @@ body::before {
 
 /* Profile Photo with Fade Out Mask */
 .hero-image-wrapper { 
+    cursor: pointer;
     position: relative; z-index: 3; 
     width: clamp(250px, 25vw, 400px); 
     border: none; background: transparent; box-shadow: none; overflow: visible;
     /* This gradient hides the bottom 30% of your suit smoothly */
     -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
+}
+
+.hero-image-wrapper:hover, 
+.hero-image-wrapper.pop-out {
+    z-index: 10 !important; /* رقم أكبر من z-index الخاص بالنص (5) */
+}
+
+.hero-image-wrapper:hover .hero-img, 
+.hero-image-wrapper.pop-out .hero-img {
+    filter: grayscale(0%) contrast(100%); 
+    transform: scale(1.05); /* تكبير خفيف يعطي إحساس بالبروز */
 }
 
 .hero-img { width: 100%; height: auto; object-fit: contain; filter: grayscale(20%) contrast(110%); transition: 0.5s; }
@@ -226,13 +238,13 @@ section { padding: 8rem 0; }
     
     /* 1. إصلاح حجم النص: استخدام vw ليتناسب تلقائياً مع عرض شاشة الموبايل ولا يُقطع */
     .hero-name-bg, .hero-name-fg { 
-        font-size: 13vw; 
+        font-size: 11.5vw !important; 
         letter-spacing: -1px;
     }
     
     /* 2. تكبير حجم الصورة: لتأخذ مساحة مناسبة مقارنة بالكوكب وتبرز بشكل أفضل */
     .hero-image-wrapper { 
-        width: 75vw; 
+        width: 70vw; 
         max-width: 320px; 
     }
 

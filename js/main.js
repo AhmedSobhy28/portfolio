@@ -238,4 +238,21 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+    // --- 4. Hero Image Pop-out Logic (Mobile Interaction) ---
+    const heroImgWrapper = document.querySelector('.hero-image-wrapper');
+    
+    if (heroImgWrapper) {
+        // عند الضغط على الصورة
+        heroImgWrapper.addEventListener('click', (e) => {
+            e.stopPropagation(); // يمنع الضغطة من التأثير على باقي الصفحة
+            heroImgWrapper.classList.toggle('pop-out');
+        });
+
+        // عند الضغط في أي مكان آخر في الشاشة
+        document.addEventListener('click', (e) => {
+            if (!heroImgWrapper.contains(e.target)) {
+                heroImgWrapper.classList.remove('pop-out');
+            }
+        });
+    }
 });
