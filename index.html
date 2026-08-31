@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Sobhy | Full-Stack Web Developer</title>
+
+    <meta name="description" content="Ahmed Sobhy — full-stack web developer in Egypt, building React/Next.js front ends and Node/NestJS backends, with networking fundamentals as a supporting interest.">
+    <meta property="og:title" content="Ahmed Sobhy | Full-Stack Web Developer">
+    <meta property="og:description" content="Full-stack web developer in Egypt, building React/Next.js front ends and Node/NestJS backends, with networking fundamentals as a supporting interest.">
+    <meta property="og:image" content="https://ahmedsobhy28.github.io/portfolio/profile.png">
+    <meta property="og:url" content="https://ahmedsobhy28.github.io/portfolio/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ahmed Sobhy | Full-Stack Web Developer">
+    <meta name="twitter:description" content="Full-stack web developer in Egypt, building React/Next.js front ends and Node/NestJS backends, with networking fundamentals as a supporting interest.">
+    <meta name="twitter:image" content="https://ahmedsobhy28.github.io/portfolio/profile.png">
+
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="canonical" href="https://ahmedsobhy28.github.io/portfolio/">
+
+    <!-- Baseline CSP as a meta tag — GitHub Pages doesn't let us set real HTTP response headers,
+         so this is the closest equivalent available on static hosting. Restricts scripts/styles
+         to self + the CDNs actually used on this page; tighten further if you self-host fonts/JS. -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Supplementary styles: new subsections (engine-subtitle, credentials), and the compact
+         In_Progress list with a self-contained --accent color per project (via data-theme),
+         independent of css/style.css. Move into css/style.css once you're happy with them. -->
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-data">INITIALIZING_SECURE_ENVIRONMENT...</div>
+            <div class="loader-bar-container">
+                <div class="loader-bar"></div>
+            </div>
+            <div class="loader-percentage">0%</div>
+        </div>
+    </div>
+
+    <nav class="cyber-nav">
+        <img src="logo.png" alt="Logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="#hero">00. ROOT</a>
+            <a href="#about">01. ABOUT</a>
+            <a href="#engines">02. PROJECTS</a>
+            <a href="#credentials">03. CREDENTIALS</a>
+            <a href="#tech">04. TECH</a>
+            <a href="#contact">05. CONTACT</a>
+            <a href="dashboard.html">06. DASHBOARD</a>
+        </div>
+        <div class="mobile-menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <div id="main-content" class="gen-idx-1">
+        <div class="ambient-glow"></div>
+
+        <section class="hero-section" id="hero">
+            <div id="canvas-container"></div>
+            <div class="cyber-wave-container">
+                <svg class="cyber-wave-svg" viewBox="0 0 100 1000" preserveAspectRatio="none">
+                    <path
+                        d="M50,0 Q90,50 50,100 T50,200 Q90,250 50,300 T50,400 Q90,450 50,500 T50,600 Q90,650 50,700 T50,800 Q90,850 50,900 T50,1000"
+                        fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" />
+                </svg>
+            </div>
+
+            <h1 class="hero-name-bg">AHMED SOBHY</h1>
+
+            <div class="hero-image-wrapper">
+                <img src="profile.png" alt="Ahmed Sobhy" class="hero-img">
+            </div>
+
+            <h1 class="hero-name-fg">AHMED SOBHY</h1>
+
+            <div id="orbit-system">
+                <div class="orbit-icon"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                <div class="orbit-icon">
+                    <svg viewBox="0 0 128 128" width="1em" height="1em" fill="currentColor">
+                        <path
+                            d="M110.4 86.8c-6 9.6-14.6 17-25 21.6-10.4 4.6-21.8 5.7-33 3.2-11.2-2.5-21.4-8.5-29.6-17.3-8.2-8.8-13.3-20-14.8-32.3-1.5-12.3 0.6-24.8 6.2-36 5.6-11.2 14.5-20.2 25.6-26.2 11.2-6 23.8-8 36.4-5.8 12.6 2.2 24.2 8.6 33.3 18.5l-16.7 18.4c-5.8-6.3-13.3-10.4-21.6-11.8-8.3-1.4-16.7 0-24 4-7.3 4-13.2 10-16.8 17.5-3.6 7.5-4.8 16-3.4 24.3 1.4 8.3 5.6 15.8 11.8 21.4 6.2 5.6 14.2 8.8 22.6 9.2 8.4 0.4 16.8-2 23.8-6.6 7-4.6 12.5-11.3 15.8-19l20.4 10.3c-2.4 5.3-5.6 10.3-9.4 14.7z" />
+                    </svg>
+                    <span>C</span>
+                </div>
+
+                <div class="orbit-icon">
+                    <svg viewBox="0 0 128 128" width="1em" height="1em" fill="currentColor">
+                        <path
+                            d="M57.6 84.5c-7 0-12.7-2.6-17.2-7.8-4.1-4.8-6.1-11-6.1-18.7 0-14 8.2-22.3 22-22.3 7 0 12.5 2.6 16.7 7.7 3.5 4.3 5.3 9.7 5.6 16h11.2c-.4-9.3-3.6-17-9.6-22.9-6.3-6.2-14.3-9.3-24-9.3-11.2 0-20.3 3.9-27.1 11.6-6.7 7.6-10 17.5-10 29.5 0 12.1 3.4 22.1 10.3 29.9 6.8 7.7 15.8 11.5 27 11.5 10 0 18.2-3.2 24.5-9.6 5.8-5.8 8.8-13.3 9.1-22.4H78.8c-.4 6-2.2 11.2-5.6 15.5-4 5.3-9.5 8.1-15.6 8.1zM113.6 53.3h-7.6V46c0-1.8-1.5-3.3-3.3-3.3-1.8 0-3.3 1.5-3.3 3.3v7.3H92c-1.8 0-3.3 1.5-3.3 3.3 0 1.8 1.5 3.3 3.3 3.3h7.4v7.5c0 1.8 1.5 3.3 3.3 3.3 1.8 0 3.3-1.5 3.3-3.3v-7.5h7.6c1.8 0 3.3-1.5 3.3-3.3 0-1.8-1.5-3.3-3.3-3.3zM128 53.3h-7.6V46c0-1.8-1.5-3.3-3.3-3.3-1.8 0-3.3 1.5-3.3 3.3v7.3h-7.4c-1.8 0-3.3 1.5-3.3 3.3 0 1.8 1.5 3.3 3.3 3.3h7.4v7.5c0 1.8 1.5 3.3 3.3 3.3 1.8 0 3.3-1.5 3.3-3.3v-7.5h7.6c1.8 0 3.3-1.5 3.3-3.3 0-1.8-1.5-3.3-3.3-3.3z" />
+                    </svg>
+                    <span>C++</span>
+                </div>
+                <div class="orbit-icon"><i class="fa-brands fa-java"></i><span>Java</span></div>
+                <div class="orbit-icon"><i class="fa-brands fa-html5"></i><span>HTML</span></div>
+                <div class="orbit-icon"><i class="fa-brands fa-css3-alt"></i><span>CSS</span></div>
+                <div class="orbit-icon"><i class="fa-brands fa-js"></i><span>JS</span></div>
+                <div class="orbit-icon"><i class="fa-brands fa-react"></i><span>React</span></div>
+            </div>
+
+            <div class="scroll-indicator"><span>SCROLL_</span></div>
+        </section>
+
+        <div class="content-wrapper">
+
+            <section id="about" class="about-section">
+                <div class="section-header">
+                    <h2 class="section-title">01 // System_Bio</h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>I'm a 22-year-old full-stack web developer from Egypt, currently studying at Borg El Arab
+                            Technological University. Most of my time goes into building complete web products — React/Next.js
+                            front ends backed by Node/NestJS APIs and real databases — end to end, from UI to deployment.</p>
+                        <p>Most of what's below started as a class project or something I got curious about and kept
+                            pushing on: a graduation project with 3D drug models, a QR generator I still tweak on
+                            weekends, a produce delivery storefront I'm building for a real local store.</p>
+                        <p>Alongside the web work, I keep a structured networking/security track running in the
+                            background — Network+, subnetting, CCNA (via Jeremy's IT Lab), and Linux fundamentals — mostly
+                            so I understand how the systems I build can be attacked, and design them to hold up better
+                            because of it.</p>
+                        <ul class="sys-specs">
+                            <li><i class="fa-solid fa-terminal"></i> <span>Status:</span> Online & Compiling</li>
+                            <li><i class="fa-solid fa-server"></i> <span>OS_Env:</span> Linux / Ubuntu Core</li>
+                            <li><i class="fa-solid fa-code"></i> <span>Current_Focus:</span> Full-Stack Web Dev
+                                (React / Next.js / NestJS)</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="time-node">
+                            <h4>Borg El Arab Technological University</h4>
+                            <p>Full-Stack Web Development & Academics</p>
+                        </div>
+                        <div class="time-node">
+                            <h4>McKinsey Forward</h4>
+                            <p>Professional Leadership & Core Skills</p>
+                        </div>
+                        <div class="time-node">
+                            <h4>InfoSec4TC</h4>
+                            <p>Cybersecurity Specialist Program</p>
+                        </div>
+                        <div class="time-node">
+                            <h4>Networking & Security Track</h4>
+                            <p>Network+, CCNA, Linux, Cisco NetAcad — In Progress</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="engines" class="engines-section">
+                <div class="section-header">
+                    <h2 class="section-title">02 // Deployed_Engines</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <h3 class="engine-subtitle"><i class="fa-solid fa-layer-group"></i> Full-Stack Platforms</h3>
+                <div class="project-grid">
+<!-- Medical interactive web application -->
+                    <div class="project-card" data-theme="cyan">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-heart-pulse"></i> HEALTHCARE</div>
+                        <div class="card-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+                        <div class="card-content">
+                            <h3>MediTrust Core</h3>
+                            <div class="card-tags"><span>React</span><span>Three.js</span><span>Node</span></div>
+                            <p>Full-scale graduation web application featuring 3D interactive drug models and integrated
+                                QR code scanning architecture for authenticated medical tracking.</p>
+                            <div class="card-links">
+                                <a href="http://meditrust.scienceontheweb.net/" class="card-link">View Engine <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                                <a href="https://github.com/AhmedSobhy28/MediTrust-Core" target="_blank" rel="noopener noreferrer"
+                                    class="card-link card-link-secondary"><i class="fa-brands fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Students Management System -->
+                    <div class="project-card" data-theme="purple">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-graduation-cap"></i> EDUCATION</div>
+                        <div class="card-icon"><i class="fa-solid fa-users-rectangle"></i></div>
+                        <div class="card-content">
+                            <h3>Borg El Arab - SMS</h3>
+                            <div class="card-tags"><span>Java</span><span>SQL</span><span>Dashboard</span></div>
+                            <p>A robust, high-efficiency Student Management System. Handles deep database structures and
+                                dynamic front-end reporting.</p>
+                            <div class="card-links">
+                                <a href="student-system/index.html" class="card-link">View Engine <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                                <a href="https://github.com/AhmedSobhy28/student-system" target="_blank" rel="noopener noreferrer"
+                                    class="card-link card-link-secondary"><i class="fa-brands fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Dynamic QR Code Generator -->
+                    <div class="project-card" data-theme="blue">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-qrcode"></i> UTILITY</div>
+                        <div class="card-icon"><i class="fa-solid fa-qrcode"></i></div>
+                        <div class="card-content">
+                            <h3>Dynamic QR Generator</h3>
+                            <div class="card-tags"><span>Next.js</span><span>React</span><span>Tailwind</span></div>
+                            <p>A high-performance, full-stack QR code generation tool featuring custom aesthetic designs, dynamic analytics tracking, and backend endpoints.</p>
+                            <div class="card-links">
+                                <a href="https://dynamic-qr-gen-zeta.vercel.app/" class="card-link">View Engine <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="https://github.com/AhmedSobhy28/dynamic-qr-gen" target="_blank" rel="noopener noreferrer"
+                                    class="card-link card-link-secondary"><i class="fa-brands fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="engine-subtitle"><i class="fa-solid fa-cubes"></i> Systems & Graphics</h3>
+                <div class="project-grid">
+<!-- Asma Allah Al-Husna interactive web app-->
+                    <div class="project-card" data-theme="gold">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-star"></i> FEATURED_ENGINE</div>
+                        <div class="card-icon"><i class="fa-solid fa-moon"></i></div>
+                        <div class="card-content">
+                            <h3>Asma Allah Al-Husna</h3>
+                            <div class="card-tags">
+                                <span>3D Galaxy UI</span><span>Vanilla JS</span><span>html2canvas</span><span>Physics
+                                    Engine</span>
+                            </div>
+                            <p>A fully immersive, responsive web application featuring a custom-built 3D Solar System
+                                (Milky Way) physics engine using pure CSS/JS. Includes an interactive journey map and a
+                                canvas-based image generator for social sharing.</p>
+                            <div class="card-links">
+                                <a href="https://ahmedsobhy28.github.io/Asma-Allah-Husna-Interactive/" target="_blank" rel="noopener noreferrer"
+                                    class="card-link">View Engine <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="https://github.com/AhmedSobhy28/Asma-Allah-Husna-Interactive" target="_blank" rel="noopener noreferrer"
+                                    class="card-link card-link-secondary"><i class="fa-brands fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Data Analysis for Small Companies -->
+                    <div class="project-card" data-theme="pink">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-chart-pie"></i> DATA</div>
+                        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="card-content">
+                            <h3>Data Analysis for Small Companies</h3>
+                            <div class="card-tags"><span>Analytics</span><span>Python</span><span>SQL</span></div>
+                            <p>A comprehensive data visualization and analysis suite designed to help small businesses
+                                track metrics, optimize workflows, and generate actionable insights.</p>
+                            <div class="card-links">
+                                <a href="data-analysis/index.html" class="card-link">View Engine <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                                <a href="https://github.com/AhmedSobhy28/data-analysis" target="_blank" rel="noopener noreferrer"
+                                    class="card-link card-link-secondary"><i class="fa-brands fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="engine-subtitle"><i class="fa-solid fa-toolbox"></i> Utilities</h3>
+                <div class="project-grid">
+<!-- Atmosphere weather application -->
+                    <div class="project-card" data-theme="teal">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-cloud"></i> WEATHER</div>
+                        <div class="card-icon"><i class="fa-solid fa-cloud-bolt"></i></div>
+                        <div class="card-content">
+                            <h3>Atmospheric Data App</h3>
+                            <div class="card-tags"><span>REST API</span><span>Async Logic</span></div>
+                            <p>Advanced weather application processing real-time telemetry. Coupled with a custom Data
+                                Analysis tool for high-performance sorting.</p>
+                            <div class="card-links">
+                                <a href="weather-app/index.html" class="card-link">View Engine <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                                <a href="https://github.com/AhmedSobhy28/weather-app" target="_blank" rel="noopener noreferrer"
+                                    class="card-link card-link-secondary"><i class="fa-brands fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="engine-subtitle"><i class="fa-solid fa-shield-halved"></i> Security Engines</h3>
+                <div class="project-grid">
+<!-- Websites Security Checker -->
+                    <div class="project-card" data-theme="lime">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-lock"></i> CYBERSEC</div>
+                        <div class="card-icon"><i class="fa-solid fa-user-secret"></i></div>
+                        <div class="card-content">
+                            <h3>Websites Security Checker</h3>
+                            <div class="card-tags">
+                                <span>Python</span><span>Networking</span><span>Auditing</span>
+                            </div>
+                            <p>Automated vulnerability scanning tool that audits target websites for common security
+                                misconfigurations — missing security headers (CSP, HSTS, X-Frame-Options), outdated TLS/SSL
+                                configs, exposed directory listings, and basic XSS/SQLi surface checks — then generates a
+                                structured diagnostic report.</p>
+                            <div class="card-links">
+                                <a href="Web-Security-Checker/index.html" class="card-link">View Engine <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                                <!-- TODO: swap in the real repo URL if this project's code lives in its own repo -->
+                                <a href="https://github.com/AhmedSobhy28/Web-Security-Checker" target="_blank" rel="noopener noreferrer"
+                                    class="card-link card-link-secondary"><i class="fa-brands fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Cyber Security Roadmap -->
+                    <div class="project-card" data-theme="green">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fas fa-shield-halved"></i> SEC_PROTOCOL</div>
+                        <div class="card-icon"><i class="fas fa-route"></i></div>
+                        <div class="card-content">
+                            <h3>Cyber Security Roadmap</h3>
+                            <div class="card-tags">
+                                <span>InfoSec</span><span>Roadmap</span><span>UI/UX</span>
+                            </div>
+                            <p>A comprehensive, interactive roadmap guiding users from zero knowledge to defending real
+                                systems and landing their first security role. Features a structured 30-week, 7-phase
+                                timeline with interactive terminal elements.</p>
+                            <div class="card-links">
+                                <a href="https://cybersec-roadmap-kappa.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-link">View
+                                    Engine <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="https://github.com/AhmedSobhy28/cybersec-roadmap" target="_blank" rel="noopener noreferrer"
+                                    class="card-link card-link-secondary"><i class="fa-brands fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- BugsBunny Hardware -->
+                    <div class="project-card" data-theme="orange">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-microchip"></i> HARDWARE</div>
+                        <div class="card-icon"><i class="fa-brands fa-raspberry-pi"></i></div>
+                        <div class="card-content">
+                            <h3>BugsBunny Hardware</h3>
+                            <div class="card-tags"><span>Raspberry Pi</span><span>Linux</span></div>
+                            <p>Specialized cybersecurity integration built on top of Raspberry Pi hardware, functioning as a lightweight, deployable network auditing node.</p>
+                            <div class="card-links">
+                                <a href="BugsBunny/index.html" class="card-link">View Engine <i class="fa-solid fa-arrow-right"></i></a>
+                                <!-- TODO: swap in the real repo URL if this project's code lives in its own repo -->
+                                <a href="https://github.com/AhmedSobhy28/BugsBunny" target="_blank" rel="noopener noreferrer"
+                                    class="card-link card-link-secondary"><i class="fa-brands fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="upcoming" class="engines-section">
+                <div class="section-header">
+                    <h2 class="section-title">02.1 // In_Progress</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <h3 class="engine-subtitle"><i class="fa-solid fa-code-branch"></i> Active Builds</h3>
+                <div class="upcoming-list">
+<!-- LogSentry: Mini SIEM / log aggregation dashboard -->
+                    <div class="upcoming-item" data-theme="siem">
+                        <div class="upcoming-icon"><i class="fa-solid fa-list-check"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>LogSentry</h4>
+                                <div class="card-tags"><span>Node.js</span><span>PostgreSQL</span><span>Log Analysis</span></div>
+                            </div>
+                            <p>Mini SIEM-style dashboard aggregating logs from multiple sources and flagging suspicious
+                                patterns — brute force attempts, off-hour access — with real-time alerting.</p>
+                            <!-- data-progress: update this % as the build actually moves forward -->
+                            <div class="progress-row">
+                                <div class="progress-track"><div class="progress-fill" data-progress="30"></div></div>
+                                <span class="progress-percent">30%</span>
+                            </div>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-clock"></i> Coming Soon</div>
+                    </div>
+<!-- AuthGuard: JWT/OAuth authentication microservice -->
+                    <div class="upcoming-item" data-theme="auth">
+                        <div class="upcoming-icon"><i class="fa-solid fa-user-shield"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>AuthGuard</h4>
+                                <div class="card-tags"><span>NestJS</span><span>JWT</span><span>RBAC</span></div>
+                            </div>
+                            <p>Reusable auth microservice with JWT + refresh token rotation, rate-limited login attempts,
+                                RBAC, and full audit logging — a hardened auth layer for other projects.</p>
+                            <div class="progress-row">
+                                <div class="progress-track"><div class="progress-fill" data-progress="45"></div></div>
+                                <span class="progress-percent">45%</span>
+                            </div>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-clock"></i> Coming Soon</div>
+                    </div>
+<!-- NetWatch: Network traffic analyzer / packet sniffer dashboard -->
+                    <div class="upcoming-item" data-theme="netsec">
+                        <div class="upcoming-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>NetWatch</h4>
+                                <div class="card-tags"><span>Python</span><span>Scapy</span><span>Dashboard</span></div>
+                            </div>
+                            <p>Live network traffic analyzer using Scapy, paired with a dashboard for traffic patterns,
+                                active connections, and basic anomaly alerts — alongside the CCNA/Network+ track.</p>
+                            <div class="progress-row">
+                                <div class="progress-track"><div class="progress-fill" data-progress="20"></div></div>
+                                <span class="progress-percent">20%</span>
+                            </div>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-clock"></i> Coming Soon</div>
+                    </div>
+<!-- Smart Study Planner -->
+                    <div class="upcoming-item" data-theme="cobalt">
+                        <div class="upcoming-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>Smart Study Planner</h4>
+                                <div class="card-tags"><span>NestJS</span><span>PostgreSQL</span><span>Prisma</span></div>
+                            </div>
+                            <p>Full-stack study scheduling platform (pnpm monorepo, 23 REST endpoints) with a three-phase
+                                scheduling engine: weighted priority scoring, SM-2 spaced repetition, greedy slot assignment.</p>
+                            <div class="progress-row">
+                                <div class="progress-track"><div class="progress-fill" data-progress="65"></div></div>
+                                <span class="progress-percent">65%</span>
+                            </div>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-clock"></i> Coming Soon</div>
+                    </div>
+<!-- Fresh Produce Delivery -->
+                    <div class="upcoming-item" data-theme="forest">
+                        <div class="upcoming-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>Fresh Produce Delivery</h4>
+                                <div class="card-tags"><span>React</span><span>NestJS</span><span>Prisma</span></div>
+                            </div>
+                            <p>A dedicated produce delivery platform for a single Alexandria store — React/Vite/TypeScript
+                                frontend, NestJS/PostgreSQL backend. A real single-vendor storefront, not a marketplace.</p>
+                            <div class="progress-row">
+                                <div class="progress-track"><div class="progress-fill" data-progress="50"></div></div>
+                                <span class="progress-percent">50%</span>
+                            </div>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-clock"></i> Coming Soon</div>
+                    </div>
+                </div>
+
+                <h3 class="engine-subtitle"><i class="fa-solid fa-lightbulb"></i> Backlog / Ideas</h3>
+                <div class="upcoming-list upcoming-list-backlog">
+<!-- CineTrack: frontend-only watchlist app -->
+                    <div class="upcoming-item" data-theme="red">
+                        <div class="upcoming-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>CineTrack</h4>
+                                <div class="card-tags"><span>React</span><span>TMDB API</span><span>Frontend</span></div>
+                            </div>
+                            <p>A frontend-only movie & TV watchlist — search via the TMDB API, track watched/plan-to-watch
+                                status, and persist everything in localStorage. No backend, pure client-side.</p>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-lightbulb"></i> Idea</div>
+                    </div>
+<!-- InvoiceFlow: full-stack freelance tracker -->
+                    <div class="upcoming-item" data-theme="emerald">
+                        <div class="upcoming-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>InvoiceFlow</h4>
+                                <div class="card-tags"><span>React</span><span>NestJS</span><span>PostgreSQL</span></div>
+                            </div>
+                            <p>Full-stack freelance time & invoice tracker — log billable hours per client and generate
+                                PDF invoices automatically from the tracked time.</p>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-lightbulb"></i> Idea</div>
+                    </div>
+<!-- DevAnswers: full-stack Q&A platform -->
+                    <div class="upcoming-item" data-theme="indigo">
+                        <div class="upcoming-icon"><i class="fa-solid fa-comments"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>DevAnswers</h4>
+                                <div class="card-tags"><span>Next.js</span><span>NestJS</span><span>PostgreSQL</span></div>
+                            </div>
+                            <p>A Stack Overflow-style Q&A platform — threaded answers, upvotes, tags, and reputation, built
+                                full-stack with a Next.js frontend and NestJS API.</p>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-lightbulb"></i> Idea</div>
+                    </div>
+<!-- PenTest Report Generator: Python automation -->
+                    <div class="upcoming-item" data-theme="amber">
+                        <div class="upcoming-icon"><i class="fa-solid fa-file-shield"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>PenTest Report Generator</h4>
+                                <div class="card-tags"><span>Python</span><span>Jinja2</span><span>Automation</span></div>
+                            </div>
+                            <p>A Python tool that takes raw scan findings (from tools like the Web Security Checker) and
+                                turns them into a polished, client-ready PDF report.</p>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-lightbulb"></i> Idea</div>
+                    </div>
+<!-- ExpenseSnap: Python + OCR -->
+                    <div class="upcoming-item" data-theme="crimson">
+                        <div class="upcoming-icon"><i class="fa-solid fa-receipt"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>ExpenseSnap</h4>
+                                <div class="card-tags"><span>Python</span><span>Flask</span><span>OCR</span></div>
+                            </div>
+                            <p>A personal expense tracker with receipt photo upload — Tesseract OCR pulls out the amount
+                                and merchant automatically instead of manual entry.</p>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-lightbulb"></i> Idea</div>
+                    </div>
+<!-- StockKeeper: Java desktop app -->
+                    <div class="upcoming-item" data-theme="violet">
+                        <div class="upcoming-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                        <div class="upcoming-main">
+                            <div class="upcoming-title-row">
+                                <h4>StockKeeper</h4>
+                                <div class="card-tags"><span>Java</span><span>JavaFX</span><span>MySQL</span></div>
+                            </div>
+                            <p>A desktop inventory & point-of-sale app for small shops — JavaFX UI backed by MySQL, with
+                                barcode lookup and low-stock alerts.</p>
+                        </div>
+                        <div class="upcoming-status"><i class="fa-solid fa-lightbulb"></i> Idea</div>
+                    </div>
+<!-- Closes the backlog grid: links to the dedicated backlog page, which lists every idea in
+     full detail and lets visitors submit one of their own. -->
+                    <a href="backlog.html" class="suggest-idea-card">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <h4>View Full Backlog</h4>
+                        <p>See every idea and future project in detail — and send in one of your own.</p>
+                    </a>
+                </div>
+            </section>
+
+            <section id="credentials" class="credentials-section">
+                <div class="section-header">
+                    <h2 class="section-title">03 // Credentials_Log</h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="credentials-grid">
+                    <!-- Every box: status pill + a detail line. Keep the detail line concrete
+                         ("3 of 8 modules done", "exam scheduled for <month>") — it reads better than "In Progress".
+                         To attach a real certificate scan/photo: add class="has-image" to the box, put the
+                         image at credentials/<file>.jpg, and set data-cert="credentials/<file>.jpg" on the box —
+                         the thumbnail + click-to-enlarge lightbox wire themselves up automatically in main.js.
+                         Boxes without data-cert just show the icon version, no code changes needed. -->
+                    <!-- Web/full-stack credentials lead the grid to match the site's primary positioning. -->
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-solid fa-code cert-icon"></i>
+                        <h4>Full-Stack Web Development</h4>
+                        <span class="credential-issuer">Borg El Arab Technological University</span>
+                        <span class="credential-status">Coursework</span>
+                        <p>Academic track covering full-stack application development</p>
+                    </div>
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-solid fa-people-group cert-icon"></i>
+                        <h4>McKinsey Forward</h4>
+                        <span class="credential-issuer">McKinsey & Company</span>
+                        <span class="credential-status">Completed</span>
+                        <p>Professional leadership & core workplace skills program</p>
+                    </div>
+                    <!-- Networking/security credentials — supporting track, kept below the web-focused ones. -->
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-solid fa-network-wired cert-icon"></i>
+                        <h4>CCNA</h4>
+                        <span class="credential-issuer">Cisco / Jeremy's IT Lab</span>
+                        <span class="credential-status">In Progress</span>
+                        <p>Networking fundamentals & routing/switching</p>
+                    </div>
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-solid fa-network-wired cert-icon"></i>
+                        <h4>Network+</h4>
+                        <span class="credential-issuer">CompTIA</span>
+                        <span class="credential-status">In Progress</span>
+                        <p>Core networking & subnetting</p>
+                    </div>
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-solid fa-shield-halved cert-icon"></i>
+                        <h4>CISSP</h4>
+                        <span class="credential-issuer">(ISC)² — Self-Study</span>
+                        <span class="credential-status">In Progress</span>
+                        <p>Security domains & frameworks</p>
+                    </div>
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-solid fa-certificate cert-icon"></i>
+                        <h4>InfoSec4TC</h4>
+                        <span class="credential-issuer">Cybersecurity Specialist Program</span>
+                        <span class="credential-status">Program</span>
+                        <p>Cybersecurity Specialist Program — full track</p>
+                    </div>
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-brands fa-cisco cert-icon"></i>
+                        <h4>Cisco NetAcad</h4>
+                        <span class="credential-issuer">Cisco Networking Academy</span>
+                        <span class="credential-status">In Progress</span>
+                        <p>Cybersecurity coursework</p>
+                    </div>
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-brands fa-linux cert-icon"></i>
+                        <h4>Linux Fundamentals</h4>
+                        <span class="credential-issuer">Self-Study</span>
+                        <span class="credential-status">Ongoing</span>
+                        <p>Command line, system administration & hardening basics</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tech" class="tech-section">
+                <div class="section-header">
+                    <h2 class="section-title">04 // Tech_Stack</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="tech-category">
+                    <h3 class="tech-category-label">Languages</h3>
+                    <div class="tech-grid">
+                        <div class="tech-box"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-code"></i><span>TypeScript</span></div>
+                        <div class="tech-box"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                        <div class="tech-box"><i class="fa-brands fa-java"></i><span>Java</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-file-code"></i><span>C / C++</span></div>
+                        <div class="tech-box"><i class="fa-brands fa-php"></i><span>PHP</span></div>
+                    </div>
+                </div>
+
+                <div class="tech-category">
+                    <h3 class="tech-category-label">Frontend</h3>
+                    <div class="tech-grid">
+                        <div class="tech-box"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
+                        <div class="tech-box"><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></div>
+                        <div class="tech-box"><i class="fa-brands fa-react"></i><span>React</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-layer-group"></i><span>Next.js</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-wind"></i><span>Tailwind CSS</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-bolt"></i><span>Vite</span></div>
+                    </div>
+                </div>
+
+                <div class="tech-category">
+                    <h3 class="tech-category-label">Backend & APIs</h3>
+                    <div class="tech-grid">
+                        <div class="tech-box"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-cubes"></i><span>NestJS</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-arrows-turn-to-dots"></i><span>REST APIs</span></div>
+                    </div>
+                </div>
+
+                <div class="tech-category">
+                    <h3 class="tech-category-label">Databases & Tooling</h3>
+                    <div class="tech-grid">
+                        <div class="tech-box"><i class="fa-solid fa-database"></i><span>MySQL / SQL</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-elephant"></i><span>PostgreSQL</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-diagram-project"></i><span>Prisma</span></div>
+                        <div class="tech-box"><i class="fa-brands fa-git-alt"></i><span>Git / GitHub</span></div>
+                        <div class="tech-box"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+                    </div>
+                </div>
+
+                <div class="tech-category">
+                    <h3 class="tech-category-label">Networking & Security</h3>
+                    <div class="tech-grid">
+                        <div class="tech-box"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-network-wired"></i><span>CCNA / Net+</span></div>
+                        <div class="tech-box"><i class="fa-solid fa-shield-halved"></i><span>CISSP Prep</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact-section">
+                <div class="section-header">
+                    <h2 class="section-title">05 // Initialize_Contact</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="contact-cta">
+                    <h3 class="gen-idx-2">Let's Work Together.</h3>
+                    <p class="gen-idx-3">Got a project that needs a secure backend, a fast front end, or
+                        both? I'd like to hear about it.</p>
+
+                    <div class="gen-idx-4">
+                        <a href="contact.html" class="cyber-btn">
+                            <i class="fa-solid fa-terminal"></i> Open Comms Terminal
+                        </a>
+
+                        <a href="Ahmed_Sobhy_CV.pdf" target="_blank" rel="noopener noreferrer" class="cyber-btn gen-idx-5">
+                            <i class="fa-solid fa-file-shield"></i> Extract Data_Log (CV)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-dock">
+                    <a href="https://github.com/AhmedSobhy28" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub Node"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ahmed-sobhy-mohamed-150643279/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bs6wRe%2BDoQ2WMrE2DXJuPYg%3D%3D"
+                        target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+
+                    <a href="https://wa.me/201099886353" target="_blank" rel="noopener noreferrer" class="social-icon" title="WhatsApp Comm"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:ah.sobhy07@gmail.com" class="social-icon" title="Direct Email"><i
+                            class="fa-solid fa-envelope"></i></a>
+
+                    <a href="https://www.facebook.com/share/198j52JkKv/" target="_blank" rel="noopener noreferrer" class="social-icon"
+                        title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/ahmed.sobhy._?igsh=djVkcGoxcWpmZGtz" target="_blank" rel="noopener noreferrer"
+                        class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Certificate lightbox: populated/opened by main.js when a credential-box has data-cert -->
+    <div class="cert-lightbox" id="cert-lightbox">
+        <span class="cert-lightbox-close" id="cert-lightbox-close"><i class="fa-solid fa-xmark"></i></span>
+        <img src="" alt="Certificate" id="cert-lightbox-img">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

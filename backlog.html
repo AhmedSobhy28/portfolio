@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Backlog | Ahmed Sobhy</title>
+
+    <meta name="description" content="Every project idea and future build on Ahmed Sobhy's backlog — searchable, filterable, and open to your own suggestions.">
+    <meta property="og:title" content="Full Backlog | Ahmed Sobhy">
+    <meta property="og:description" content="Every project idea and future build on Ahmed Sobhy's backlog — searchable, filterable, and open to your own suggestions.">
+    <meta property="og:image" content="https://ahmedsobhy28.github.io/portfolio/profile.png">
+    <meta property="og:url" content="https://ahmedsobhy28.github.io/portfolio/backlog.html">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="canonical" href="https://ahmedsobhy28.github.io/portfolio/backlog.html">
+
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/backlog.css">
+
+    <!-- No intro loader and no Three.js globe on this page on purpose — it's a utility page
+         (search/filter/form), so it loads instantly instead of waiting on the 4s intro or the
+         WebGL background. Ambience comes from .backlog-bg (pure CSS, no JS/WebGL cost).
+         Cards here use the dedicated .backlog-card component (css/style.css) instead of the
+         compact .upcoming-item rows on the homepage teaser — solid bordered tiles with real
+         spacing, so they read as distinct cards instead of blending into one list. -->
+</head>
+
+<body>
+
+    <nav class="cyber-nav">
+        <img src="logo.png" alt="Logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="index.html#hero">00. ROOT</a>
+            <a href="index.html#about">01. ABOUT</a>
+            <a href="index.html#engines">02. PROJECTS</a>
+            <a href="index.html#credentials">03. CREDENTIALS</a>
+            <a href="index.html#tech">04. TECH</a>
+            <a href="index.html#contact">05. CONTACT</a>
+        </div>
+        <div class="mobile-menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <div id="main-content">
+        <div class="backlog-bg"></div>
+
+        <div class="content-wrapper gen-bl-1">
+
+            <a href="index.html" class="back-home-link"><i class="fa-solid fa-arrow-left"></i> Back to root</a>
+
+            <section id="backlog-intro" class="gen-bl-2">
+                <div class="section-header">
+                    <h2 class="section-title">02.2 // Full_Backlog</h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="page-intro">
+                    <p>Everything queued up for building — active builds already in motion, and ideas still waiting
+                        their turn. Search, filter, or scroll through — and if you've got something I should build,
+                        send it in below.</p>
+                </div>
+            </section>
+
+            <section id="backlog-board" class="gen-bl-2">
+                <div class="backlog-controls">
+                    <div class="backlog-tabs" role="tablist" aria-label="Filter backlog by status">
+                        <button class="backlog-tab active" data-filter="all" type="button">All <span
+                                class="backlog-tab-count" id="count-all"></span></button>
+                        <button class="backlog-tab" data-filter="active" type="button">Active Builds <span
+                                class="backlog-tab-count" id="count-active"></span></button>
+                        <button class="backlog-tab" data-filter="idea" type="button">Ideas <span
+                                class="backlog-tab-count" id="count-idea"></span></button>
+                    </div>
+                    <div class="backlog-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="backlog-search-input" placeholder="Search by name, tech, or tag...">
+                    </div>
+                </div>
+
+                <p class="backlog-empty-state" id="backlog-empty-state" hidden>
+                    <i class="fa-solid fa-satellite-dish"></i> Nothing matches that search — try a different keyword.
+                </p>
+
+                <div class="full-backlog-grid" id="backlog-grid">
+                    <!-- Active Builds — data-progress is a placeholder starting point, update it as each
+                         build actually moves forward so the bar keeps telling the truth. -->
+                    <div class="backlog-card" data-theme="siem" data-status="active"
+                        data-search="logsentry node.js postgresql log analysis siem dashboard">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-list-check"></i></div>
+                            <span class="backlog-card-badge status-active"><i class="fa-solid fa-code-branch"></i>
+                                Active Build</span>
+                        </div>
+                        <h4>LogSentry</h4>
+                        <div class="card-tags"><span>Node.js</span><span>PostgreSQL</span><span>Log
+                                Analysis</span></div>
+                        <p>Mini SIEM-style dashboard aggregating logs from multiple sources and flagging suspicious
+                            patterns — brute force attempts, off-hour access — with real-time alerting.</p>
+                        <div class="progress-row">
+                            <div class="progress-track">
+                                <div class="progress-fill" data-progress="30"></div>
+                            </div>
+                            <span class="progress-percent">30%</span>
+                        </div>
+                    </div>
+                    <div class="backlog-card" data-theme="auth" data-status="active"
+                        data-search="authguard nestjs jwt rbac auth microservice">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-user-shield"></i></div>
+                            <span class="backlog-card-badge status-active"><i class="fa-solid fa-code-branch"></i>
+                                Active Build</span>
+                        </div>
+                        <h4>AuthGuard</h4>
+                        <div class="card-tags"><span>NestJS</span><span>JWT</span><span>RBAC</span></div>
+                        <p>Reusable auth microservice with JWT + refresh token rotation, rate-limited login attempts,
+                            RBAC, and full audit logging — a hardened auth layer for other projects.</p>
+                        <div class="progress-row">
+                            <div class="progress-track">
+                                <div class="progress-fill" data-progress="45"></div>
+                            </div>
+                            <span class="progress-percent">45%</span>
+                        </div>
+                    </div>
+                    <div class="backlog-card" data-theme="netsec" data-status="active"
+                        data-search="netwatch python scapy dashboard network traffic">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                            <span class="backlog-card-badge status-active"><i class="fa-solid fa-code-branch"></i>
+                                Active Build</span>
+                        </div>
+                        <h4>NetWatch</h4>
+                        <div class="card-tags"><span>Python</span><span>Scapy</span><span>Dashboard</span></div>
+                        <p>Live network traffic analyzer using Scapy, paired with a dashboard for traffic patterns,
+                            active connections, and basic anomaly alerts — alongside the CCNA/Network+ track.</p>
+                        <div class="progress-row">
+                            <div class="progress-track">
+                                <div class="progress-fill" data-progress="20"></div>
+                            </div>
+                            <span class="progress-percent">20%</span>
+                        </div>
+                    </div>
+                    <div class="backlog-card" data-theme="cobalt" data-status="active"
+                        data-search="smart study planner nestjs postgresql prisma scheduling">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <span class="backlog-card-badge status-active"><i class="fa-solid fa-code-branch"></i>
+                                Active Build</span>
+                        </div>
+                        <h4>Smart Study Planner</h4>
+                        <div class="card-tags"><span>NestJS</span><span>PostgreSQL</span><span>Prisma</span></div>
+                        <p>Full-stack study scheduling platform (pnpm monorepo, 23 REST endpoints) with a
+                            three-phase scheduling engine: weighted priority scoring, SM-2 spaced repetition, greedy
+                            slot assignment.</p>
+                        <div class="progress-row">
+                            <div class="progress-track">
+                                <div class="progress-fill" data-progress="65"></div>
+                            </div>
+                            <span class="progress-percent">65%</span>
+                        </div>
+                    </div>
+                    <div class="backlog-card" data-theme="forest" data-status="active"
+                        data-search="fresh produce delivery react nestjs prisma alexandria storefront">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                            <span class="backlog-card-badge status-active"><i class="fa-solid fa-code-branch"></i>
+                                Active Build</span>
+                        </div>
+                        <h4>Fresh Produce Delivery</h4>
+                        <div class="card-tags"><span>React</span><span>NestJS</span><span>Prisma</span></div>
+                        <p>A dedicated produce delivery platform for a single Alexandria store —
+                            React/Vite/TypeScript frontend, NestJS/PostgreSQL backend. A real single-vendor
+                            storefront, not a marketplace.</p>
+                        <div class="progress-row">
+                            <div class="progress-track">
+                                <div class="progress-fill" data-progress="50"></div>
+                            </div>
+                            <span class="progress-percent">50%</span>
+                        </div>
+                    </div>
+
+                    <!-- Backlog Ideas — distinct from Active Builds: frontend-only, full-stack, Python, and Java -->
+                    <div class="backlog-card" data-theme="red" data-status="idea"
+                        data-search="cinetrack movie tv watchlist react tmdb frontend">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                            <span class="backlog-card-badge status-idea"><i class="fa-solid fa-lightbulb"></i>
+                                Idea</span>
+                        </div>
+                        <h4>CineTrack</h4>
+                        <div class="card-tags"><span>React</span><span>TMDB API</span><span>Frontend</span></div>
+                        <p>A frontend-only movie & TV watchlist — search via the TMDB API, track watched/plan-to-watch
+                            status, and persist everything in localStorage. No backend, pure client-side.</p>
+                    </div>
+                    <div class="backlog-card" data-theme="emerald" data-status="idea"
+                        data-search="invoiceflow freelance time invoice tracker react nestjs postgresql full-stack">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                            <span class="backlog-card-badge status-idea"><i class="fa-solid fa-lightbulb"></i>
+                                Idea</span>
+                        </div>
+                        <h4>InvoiceFlow</h4>
+                        <div class="card-tags"><span>React</span><span>NestJS</span><span>PostgreSQL</span></div>
+                        <p>Full-stack freelance time & invoice tracker — log billable hours per client and generate
+                            PDF invoices automatically from the tracked time.</p>
+                    </div>
+                    <div class="backlog-card" data-theme="indigo" data-status="idea"
+                        data-search="devanswers q&a platform next.js nestjs postgresql full-stack">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-comments"></i></div>
+                            <span class="backlog-card-badge status-idea"><i class="fa-solid fa-lightbulb"></i>
+                                Idea</span>
+                        </div>
+                        <h4>DevAnswers</h4>
+                        <div class="card-tags"><span>Next.js</span><span>NestJS</span><span>PostgreSQL</span></div>
+                        <p>A Stack Overflow-style Q&A platform — threaded answers, upvotes, tags, and reputation,
+                            built full-stack with a Next.js frontend and NestJS API.</p>
+                    </div>
+                    <div class="backlog-card" data-theme="amber" data-status="idea"
+                        data-search="pentest report generator python jinja2 automation pdf">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-file-shield"></i></div>
+                            <span class="backlog-card-badge status-idea"><i class="fa-solid fa-lightbulb"></i>
+                                Idea</span>
+                        </div>
+                        <h4>PenTest Report Generator</h4>
+                        <div class="card-tags"><span>Python</span><span>Jinja2</span><span>Automation</span></div>
+                        <p>A Python tool that takes raw scan findings (from tools like the Web Security Checker) and
+                            turns them into a polished, client-ready PDF report.</p>
+                    </div>
+                    <div class="backlog-card" data-theme="crimson" data-status="idea"
+                        data-search="expensesnap expense tracker python flask ocr receipt">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-receipt"></i></div>
+                            <span class="backlog-card-badge status-idea"><i class="fa-solid fa-lightbulb"></i>
+                                Idea</span>
+                        </div>
+                        <h4>ExpenseSnap</h4>
+                        <div class="card-tags"><span>Python</span><span>Flask</span><span>OCR</span></div>
+                        <p>A personal expense tracker with receipt photo upload — Tesseract OCR pulls out the amount
+                            and merchant automatically instead of manual entry.</p>
+                    </div>
+                    <div class="backlog-card" data-theme="violet" data-status="idea"
+                        data-search="stockkeeper inventory pos java javafx mysql desktop">
+                        <div class="backlog-card-header">
+                            <div class="backlog-card-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                            <span class="backlog-card-badge status-idea"><i class="fa-solid fa-lightbulb"></i>
+                                Idea</span>
+                        </div>
+                        <h4>StockKeeper</h4>
+                        <div class="card-tags"><span>Java</span><span>JavaFX</span><span>MySQL</span></div>
+                        <p>A desktop inventory & point-of-sale app for small shops — JavaFX UI backed by MySQL, with
+                            barcode lookup and low-stock alerts.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="submit-idea">
+                <h3 class="engine-subtitle"><i class="fa-solid fa-paper-plane"></i> Suggest_An_Idea</h3>
+                <form class="idea-form" id="idea-form">
+                    <div class="form-group">
+                        <label for="idea-name">Your Name (optional)</label>
+                        <input type="text" id="idea-name" name="idea-name" placeholder="Ahmed, Sara, ...">
+                    </div>
+                    <div class="form-group">
+                        <label for="idea-title">Project Idea *</label>
+                        <input type="text" id="idea-title" name="idea-title"
+                            placeholder="e.g. A habit tracker with streak-based rewards" required maxlength="80">
+                    </div>
+                    <div class="form-group">
+                        <label for="idea-details">Details</label>
+                        <textarea id="idea-details" name="idea-details" rows="4" maxlength="500"
+                            placeholder="What should it do? Any tech you'd like to see used?"></textarea>
+                        <span class="form-char-count" id="idea-details-count">0 / 500</span>
+                    </div>
+                    <button type="submit" class="cyber-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Send Idea
+                    </button>
+                    <p class="form-note">This opens your email client with the idea pre-filled — nothing is sent
+                        automatically, and no data is stored on this site.</p>
+                </form>
+            </section>
+
+            <section id="contact" class="gen-bl-3">
+                <div class="social-dock">
+                    <a href="https://github.com/AhmedSobhy28" target="_blank" rel="noopener noreferrer"
+                        class="social-icon" title="GitHub Node"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ahmed-sobhy-mohamed-150643279/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bs6wRe%2BDoQ2WMrE2DXJuPYg%3D%3D"
+                        target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/201099886353" target="_blank" rel="noopener noreferrer"
+                        class="social-icon" title="WhatsApp Comm"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:ah.sobhy07@gmail.com" class="social-icon" title="Direct Email"><i
+                            class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/share/198j52JkKv/" target="_blank" rel="noopener noreferrer"
+                        class="social-icon" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/ahmed.sobhy._?igsh=djVkcGoxcWpmZGtz" target="_blank"
+                        rel="noopener noreferrer" class="social-icon" title="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="toast" id="idea-toast"><i class="fa-solid fa-circle-check"></i> <span>Email draft opened — check your
+            mail app.</span></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/backlog.js"></script>
+</body>
+
+</html>
