@@ -1587,6 +1587,19 @@ section {
             opacity: 1;
         }
 
+        /* Link from the trimmed homepage In_Progress list to the full backlog page */
+        .view-all-backlog-link {
+            display: flex;
+            justify-content: center;
+            margin: 1.75rem 0 0.5rem;
+        }
+
+        .view-all-backlog-link .card-link {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         /* Compact In_Progress list — replaces the old full-size project cards with a slimmer,
            lower-visual-weight row format so this section reads as "queue" rather than competing
            with the Deployed_Engines showcase above it. */
