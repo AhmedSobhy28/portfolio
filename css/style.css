@@ -7,6 +7,7 @@
 }
 
 :root {
+  color-scheme: dark;
   --bg-main: #0b0f13;
   --bg-surface: rgba(18, 24, 31, 0.6);
   --border-glass: rgba(255, 255, 255, 0.08);
@@ -99,7 +100,8 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  /* قللنا الـ padding هنا عشان الشريط يرفع */
+  padding: 0.7rem 5%;
   transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
 }
 
@@ -107,16 +109,15 @@ body::before {
    contact.js toggle this) — the bar sits closer to the edge and reads as a
    slimmer utility strip instead of the full-size landing header. */
 .cyber-nav.scrolled {
-  padding: 0.6rem 5%;
+  padding: 0.5rem 5%;
   background: rgba(11, 15, 19, 0.95);
 }
-
 .nav-logo {
-  height: 35px;
+  height: 28px; /* صغرنا اللوجو عشان يتناسب مع الشريط الرفيع */
   transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .cyber-nav.scrolled .nav-logo {
-  height: 26px;
+  height: 24px;
 }
 
 /* Thin scroll-position indicator along the bottom edge of the nav. Its
@@ -140,7 +141,7 @@ body::before {
   color: var(--text-muted);
   text-decoration: none;
   margin-left: 2rem;
-  font-size: 0.85rem;
+  font-size: 0.78rem; /* صغرنا خط اللينكات سِنة عشان الشياكة */
   letter-spacing: 1px;
   padding-bottom: 4px;
   border-bottom: 1px solid transparent;
@@ -202,13 +203,12 @@ body::before {
     transform: translateY(0) scale(1);
   }
 }
-/* Skip the WebGL globe on small screens — mobile devices pay the real cost of a
-   Three.js scene + 400-particle field for a background effect that's barely visible
-   behind the hero text anyway. main.js also skips creating the renderer at this
-   breakpoint, so this isn't just visually hidden, it's never initialized on mobile. */
+/* الكرة اتفعلت تاني على الموبايل — main.js بيستخدم نسخة أخف بكتير منها
+   (segments أقل، بدون antialias، pixel ratio مقصوص، جسيمات أقل) بدل ما
+   يشيلها خالص. هنا بس بنتأكد إنها ماتاخدش مساحة زيادة عن اللازم. */
 @media (max-width: 768px) {
   #canvas-container {
-    display: none;
+    opacity: 0.85;
   }
 }
 
@@ -216,7 +216,8 @@ body::before {
 .hero-name-fg {
   position: absolute;
   font-family: var(--font-display);
-  font-size: clamp(4rem, 10vw, 10rem);
+  /* نزلنا النسبة لـ 8vw والحد الأقصى لـ 10rem */
+  font-size: clamp(3.5rem, 8vw, 10rem); 
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
@@ -293,7 +294,8 @@ body::before {
   cursor: pointer;
   position: relative;
   z-index: 3;
-  width: clamp(290px, 30vw, 480px);
+  /* تم تصغير القيم هنا لتصغير الصورة على اللاب توب */
+  width: clamp(250px, 25vw, 400px); 
   border: none;
   background: transparent;
   box-shadow: none;
@@ -311,7 +313,6 @@ body::before {
   animation: heroImageReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.25s;
 }
-
 /* Entrance animation for the profile photo — drops in from above, landing on
    the globe just after it has risen into place, and just ahead of the name. */
 @keyframes heroImageReveal {
@@ -469,7 +470,8 @@ body::before {
 @media (min-width: 769px) and (max-height: 820px) {
   .hero-name-bg,
   .hero-name-fg {
-    font-size: clamp(3rem, 7vw, 6.5rem);
+    /* 🌟 كبرنا الخط هنا كمان للشاشات العريضة بس ارتفاعها قصير */
+    font-size: clamp(5rem, 11vw, 14rem);
   }
 
   .hero-intro {
@@ -2160,3 +2162,195 @@ section {
     font-size: 0.8rem;
 }
 
+
+/* ============================================================
+   MOBILE HERO REBUILD  —  (mobile only, ≤768px)
+   يتجاهله الديسكتوب تماماً. آخر بلوك في الملف عشان يغلب
+   أي قواعد موبايل قديمة فوق.
+   ============================================================ */
+
+/* المتغير ده كان مستخدم في transition بتاع منيو الموبايل من غير
+   ما يتعرّف، فالـ transition كله كان بيتلغي والمنيو بيفتح فجأة. */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  /* --- الحاوية --- */
+  html, body {
+    overflow-x: hidden !important; /* بيمنع السكرول العرضي والمسافة اللي على اليمين */
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* --- الحاوية --- */
+  .hero-section {
+    width: 100%;
+    /* استخدام svh بيظبط الارتفاع مع شريط المتصفح في الموبايل عشان يمنع الفراغ اللي تحت */
+    height: 100svh !important; 
+    min-height: -webkit-fill-available; /* حيلة إضافية لسفاري في الايفون */
+    overflow: hidden; /* بيقص أي حاجة تطلع برة السيكشن (زي الكرة لو كبرت) */
+    position: relative; /* مهم عشان العناصر اللي جواه (زي الصورة والاسم) تفضل متمركزه فيه */
+  }
+
+  /* الحلقتين دول كانوا بديل الكرة الـ WebGL لما كانت متشالة من الموبايل.
+     دلوقتي الكرة الحقيقية رجعت (بنسخة خفيفة في main.js)، فمبقاش محتاجين
+     الفولباك ده — سايبينه في التعليق لو حبيت ترجعه وقت الحاجة. */
+
+/* --- الاسم --- */
+  .hero-name-bg,
+  .hero-name-fg {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    font-size: 16vw !important;
+    line-height: 1 !important;
+    letter-spacing: -1px !important;
+    width: 100% !important;
+    text-align: center !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    gap: 22vh !important; 
+  }
+  .name-word {
+    display: inline-block !important;
+  }
+  .hero-name-fg {
+    -webkit-text-stroke-width: 1.2px;
+  }
+
+  /* --- الصورة ---
+     أكبر شوية عن النسخة القديمة، وقاعدة بالظبط في المنتصف بين السطرين.
+     الـ gap فوق اتزود معاها بنفس النسبة عشان AHMED وSOBHY يفضلوا واخدين
+     مسافة كافية من فوق ومن تحت الصورة ومايحصلش تداخل. */
+  /* --- الصورة --- */
+  .hero-image-wrapper {
+    width: 65vw !important; /* كبرنا العرض النسبي */
+    min-width: 240px !important; /* كبرنا الحد الأدنى */
+    max-width: 320px !important; /* كبرنا الحد الأقصى */
+    transform: translateY(0) !important;
+    /* مسحنا الـ z-index عشان حركة pop-out تشتغل */
+  }
+  /* اللمسة/الهوفر مش لها معنى على التاتش، وبتخلي الصورة تكبر وتخرج */
+  .hero-image-wrapper:hover .hero-img,
+  .hero-image-wrapper.pop-out .hero-img {
+    transform: none;
+  }
+
+  /* --- أيقونات المدار --- */
+  /* نصف قطر الدوران بيتحسب في main.js — هنا بنظبط الحجم بس */
+  .orbit-icon {
+    font-size: 1.15rem;
+  }
+  .orbit-icon span {
+    font-size: 0.5rem;
+    margin-top: 3px;
+  }
+  .orbit-ring {
+    display: none; /* الحلقة المرسومة فوق بتغني عنها */
+  }
+
+  /* --- النص التعريفي: كان display:none خالص على الموبايل --- */
+  .hero-intro {
+    display: block;
+    position: absolute;
+    left: 50%;
+    right: auto;
+    bottom: 4.5rem;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 420px;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    z-index: 6;
+  }
+  .hero-intro-role {
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.45rem;
+  }
+  .hero-intro p {
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+  /* الأنيميشن الأصلي بيحرك translateY وده بيلغي الـ translateX بتاع
+     التوسيط، فبنعمل نسخة خاصة بالموبايل */
+  .hero-intro {
+    animation: heroIntroRevealMobile 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.95s;
+  }
+  @keyframes heroIntroRevealMobile {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  /* --- مؤشر السكرول --- */
+  .scroll-indicator {
+    bottom: 1.4rem;
+    font-size: 0.65rem;
+  }
+
+  /* --- تفاصيل خلفية --- */
+  .cyber-wave-container {
+    opacity: 0.06; /* الخط المتعرج كان واخد نظر أكتر من اللازم */
+    width: 60px;
+  }
+  .ambient-glow {
+    width: 90vw;
+    height: 45vh;
+    top: 32%;
+  }
+
+  /* --- النافبار --- */
+  .cyber-nav {
+    padding: 0.85rem 1.1rem;
+  }
+  .nav-logo {
+    height: 30px;
+  }
+}
+
+/* شاشات صغيرة جداً (≤380px) — تصغير إضافي بسيط */
+@media (max-width: 380px) {
+  .hero-name-bg,
+  .hero-name-fg {
+    font-size: 13vw !important;
+  }
+  .hero-image-wrapper {
+    max-width: 205px !important;
+  }
+  .hero-intro p {
+    font-size: 0.7rem;
+  }
+}
+
+/* موبايل بالعرض (landscape) — الارتفاع بيبقى صغير جداً فالتخطيط
+   بيتزنق؛ بنصغّر كل حاجة ونخفي النص التعريفي */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  .hero-section {
+    min-height: 420px;
+  }
+  .hero-image-wrapper {
+    max-width: 150px !important;
+    transform: translateY(-2vh) !important;
+  }
+  .hero-name-bg,
+  .hero-name-fg {
+    font-size: 8vw !important;
+  }
+  .hero-intro {
+    display: none;
+  }
+  .hero-section::before,
+  .hero-section::after {
+    display: none;
+  }
+}
