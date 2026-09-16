@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ledger | Small-Business Analytics — Ahmed Sobhy</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Jost:wght@400;500;600;700&family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sheet">
+        <span class="frame-corner tl" aria-hidden="true"></span>
+        <span class="frame-corner tr" aria-hidden="true"></span>
+        <span class="frame-corner bl" aria-hidden="true"></span>
+        <span class="frame-corner br" aria-hidden="true"></span>
+
+        <header class="masthead">
+            <div class="title-plate">
+                <div class="masthead-title" data-i18n="title">The Ledger</div>
+                <div class="sunburst" aria-hidden="true"></div>
+                <div class="masthead-sub" id="dataSourceNote" data-i18n="subDemo">A private ledger of small-business figures — sample data. Upload a CSV to enter your own.</div>
+            </div>
+        </header>
+
+        <div class="toolbar">
+            <button class="btn" id="lang-btn" aria-label="Switch language">EN · AR</button>
+            <button class="btn primary" id="add-entry-btn" data-i18n="addEntry">+ New entry</button>
+            <button class="btn" id="sample-btn" data-i18n="loadSample">Load sample data</button>
+            <button class="btn" id="export-btn" data-i18n="exportCsv">Export CSV</button>
+            <button class="btn" id="upload-btn" data-i18n="uploadCsv">Upload CSV</button>
+            <button class="btn" id="pdf-btn" data-i18n="exportPdf">Export PDF</button>
+            <button class="btn" id="backup-export-btn" data-i18n="backupExport">Backup (JSON)</button>
+            <button class="btn" id="backup-import-btn" data-i18n="backupImport">Restore backup</button>
+            <button class="btn danger" id="clear-data-btn" data-i18n="clearData">Clear ledger</button>
+            <input type="file" id="file-input" accept=".csv" hidden>
+            <input type="file" id="backup-file-input" accept=".json" hidden>
+        </div>
+
+        <section class="upload-zone" id="upload-zone">
+            <div class="upload-zone-inner">
+                <p class="upload-title" data-i18n="dropTitle">Drop a transactions CSV here, or use "Upload CSV" above</p>
+                <p class="upload-sub" data-i18n="dropSub">Expected columns: order, customer, amount, date, method, category, status</p>
+                <button class="btn small" id="template-btn" data-i18n="downloadTemplate">Download template</button>
+            </div>
+        </section>
+
+        <section class="filter-bar" id="filter-bar" hidden>
+            <div class="filter-field">
+                <label data-i18n="fSearch">Search</label>
+                <input type="text" id="f-search" data-i18n-ph="fSearchPh" placeholder="Customer or order #">
+            </div>
+            <div class="filter-field">
+                <label data-i18n="fFrom">From</label>
+                <input type="date" id="f-from">
+            </div>
+            <div class="filter-field">
+                <label data-i18n="fTo">To</label>
+                <input type="date" id="f-to">
+            </div>
+            <div class="filter-field">
+                <label data-i18n="fCategory">Category</label>
+                <select id="f-category"></select>
+            </div>
+            <div class="filter-field">
+                <label data-i18n="fMethod">Method</label>
+                <select id="f-method"></select>
+            </div>
+            <div class="filter-field">
+                <label data-i18n="fStatus">Status</label>
+                <select id="f-status"></select>
+            </div>
+            <button class="btn small" id="f-reset" data-i18n="fReset">Reset</button>
+        </section>
+
+        <section class="kpi-row">
+            <div class="kpi">
+                <div class="kpi-label" data-i18n="kpiRevenue">Gross revenue</div>
+                <div class="kpi-value" id="kpi-revenue">$0</div>
+                <div class="kpi-delta" id="kpi-revenue-delta"></div>
+            </div>
+            <div class="kpi">
+                <div class="kpi-label" data-i18n="kpiRepeat">Repeat customers</div>
+                <div class="kpi-value" id="kpi-repeat">0</div>
+                <div class="kpi-delta" id="kpi-repeat-delta"></div>
+            </div>
+            <div class="kpi">
+                <div class="kpi-label" data-i18n="kpiFulfillment">Fulfillment rate</div>
+                <div class="kpi-value" id="kpi-fulfillment">0%</div>
+                <div class="kpi-delta" id="kpi-fulfillment-delta"></div>
+            </div>
+            <div class="kpi">
+                <div class="kpi-label" data-i18n="kpiAov">Avg. order value</div>
+                <div class="kpi-value" id="kpi-aov">$0</div>
+                <div class="kpi-delta" id="kpi-aov-delta"></div>
+            </div>
+        </section>
+
+        <section class="ledger-row">
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title" data-i18n="panelRevenue">Revenue &amp; order volume, by month</span>
+                    <span class="panel-note" id="panel-revenue-note"></span>
+                </div>
+                <div class="chart-box">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title" data-i18n="panelCategory">Revenue by category</span>
+                </div>
+                <div class="chart-box small">
+                    <canvas id="sourceChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="ledger-row">
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title" data-i18n="panelTopCustomers">Top customers</span>
+                </div>
+                <div class="chart-box small">
+                    <canvas id="topCustomersChart"></canvas>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title" data-i18n="panelMethod">Payment methods</span>
+                </div>
+                <div class="chart-box small">
+                    <canvas id="methodChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="ledger-row">
+            <div class="panel wide">
+                <div class="panel-heading">
+                    <span class="panel-title" data-i18n="panelTransactions">Transactions</span>
+                    <span class="panel-note" id="txn-count-note"></span>
+                </div>
+                <div class="table-scroll">
+                    <table id="txn-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="id" data-i18n="colOrder">Order</th>
+                                <th data-sort="customer" data-i18n="colCustomer">Customer</th>
+                                <th data-sort="amount" data-i18n="colAmount">Amount</th>
+                                <th data-sort="date" data-i18n="colDate">Date</th>
+                                <th data-sort="category" data-i18n="colCategory">Category</th>
+                                <th data-sort="method" data-i18n="colMethod">Method</th>
+                                <th data-sort="status" data-i18n="colStatus">Status</th>
+                                <th data-i18n="colActions">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="txn-tbody"></tbody>
+                    </table>
+                </div>
+                <button class="btn small" id="show-more-btn" hidden></button>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title" data-i18n="panelActivity">Activity</span>
+                </div>
+                <div class="activity-list" id="activity-list"></div>
+            </div>
+        </section>
+
+        <footer class="foot">
+            <a href="../index.html" data-i18n="backToPortfolio">Back to portfolio</a>
+            <p data-i18n="footNote">Built by Ahmed Sobhy — everything runs in your browser; entries are saved on this device automatically.</p>
+        </footer>
+
+    </div>
+
+    <div class="modal-overlay" id="entry-modal" hidden>
+        <form class="modal wide" id="entry-form">
+            <div class="modal-heading">
+                <span id="modal-title" data-i18n="addEntryTitle">New ledger entry</span>
+                <button type="button" class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+            </div>
+            <input type="hidden" id="ef-uid">
+            <div class="modal-grid">
+                <div class="filter-field">
+                    <label data-i18n="formCustomer">Customer</label>
+                    <input type="text" id="ef-customer" required>
+                </div>
+                <div class="filter-field">
+                    <label data-i18n="formDate">Date</label>
+                    <input type="date" id="ef-date" required>
+                </div>
+                <div class="filter-field">
+                    <label data-i18n="formMethod">Method</label>
+                    <select id="ef-method">
+                        <option value="card">Card</option>
+                        <option value="transfer">Transfer</option>
+                        <option value="cash">Cash</option>
+                    </select>
+                </div>
+                <div class="filter-field">
+                    <label data-i18n="formStatus">Status</label>
+                    <select id="ef-status">
+                        <option value="fulfilled" data-i18n="statusFulfilled">Fulfilled</option>
+                        <option value="pending" data-i18n="statusPending">Pending</option>
+                    </select>
+                </div>
+            </div>
+
+            <datalist id="item-category-list"></datalist>
+            <div class="items-section">
+                <div class="items-heading">
+                    <span data-i18n="formItems">Items</span>
+                    <button type="button" class="btn small" id="add-item-btn" data-i18n="addItem">+ Add item</button>
+                </div>
+                <div class="calc-hint" data-i18n="calcHint">Tip: type a sum like 150+40+20 in the price field and tab out</div>
+                <div class="items-list" id="items-list"></div>
+                <div class="items-total-row">
+                    <span data-i18n="itemsTotalLabel">Invoice total</span>
+                    <span id="items-total-value">$0</span>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn small" id="modal-cancel" data-i18n="cancel">Cancel</button>
+                <button type="submit" class="btn primary small" id="modal-save" data-i18n="save">Save entry</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

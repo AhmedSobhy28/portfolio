@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BugsBunny Hardware | AI Cybersecurity Agent</title>
+  <link rel="icon" href="assets/images/bugsbunny-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="BugsBunny Hardware home">
+      <img src="assets/images/bugsbunny-logo.png" alt="BugsBunny Hardware logo">
+      <span>BugsBunny Hardware</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#project">Project</a>
+      <a href="#system">System</a>
+      <a href="#divisions">Divisions</a>
+      <a href="#team">Team</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <p class="eyebrow">Graduation Project Portfolio</p>
+        <h1 id="hero-title">BugsBunny Hardware</h1>
+        <p class="hero-lede">
+          A Raspberry Pi based AI cybersecurity agent for consent-based vulnerability analysis,
+          real-time monitoring, and clear remediation reporting.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#project">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-2.8 8.5-7 10-4.2-1.5-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-5"/></svg>
+            </span>
+            Explore Project
+          </a>
+          <a class="button secondary" href="#team">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M19 8v4"/><path d="M21 10h-4"/></svg>
+            </span>
+            Meet The Team
+          </a>
+        </div>
+      </div>
+      <div class="hero-metrics" aria-label="Project highlights">
+        <div>
+          <strong>6</strong>
+          <span>Divisions</span>
+        </div>
+        <div>
+          <strong>23</strong>
+          <span>Team Members</span>
+        </div>
+        <div>
+          <strong>AI + Edge</strong>
+          <span>Security Agent</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro" id="project">
+      <div class="section-heading">
+        <p class="eyebrow">Project Overview</p>
+        <h2>Portable ethical security testing, explained for humans.</h2>
+      </div>
+      <div class="intro-grid">
+        <article class="feature-panel">
+          <span class="panel-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-2.8 8.5-7 10-4.2-1.5-7-5.5-7-10V6l7-3z"/><path d="M8.5 12.5l2.2 2.2 4.8-5.4"/></svg>
+          </span>
+          <h3>Consent First</h3>
+          <p>Every test starts only after explicit target approval, keeping the system lawful, transparent, and academically responsible.</p>
+        </article>
+        <article class="feature-panel">
+          <span class="panel-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 5h14v10H5z"/><path d="M9 19h6"/><path d="M12 15v4"/><path d="M8 9h3"/><path d="M13 9h3"/><path d="M8 12h8"/></svg>
+          </span>
+          <h3>Raspberry Pi Agent</h3>
+          <p>The Pi acts as the central hardware probe, access point, scan coordinator, and compact edge environment.</p>
+        </article>
+        <article class="feature-panel">
+          <span class="panel-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 8h8v8H8z"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M5 5l2 2"/><path d="M17 17l2 2"/><path d="M19 5l-2 2"/><path d="M7 17l-2 2"/></svg>
+          </span>
+          <h3>AI Reporting</h3>
+          <p>Structured scan data is interpreted by an AI layer that explains vulnerabilities, ranks risks, and recommends fixes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split" id="system">
+      <div class="content-stack">
+        <p class="eyebrow">System Model</p>
+        <h2>Client-server architecture with real-time security events.</h2>
+        <p>
+          BugsBunny combines a Raspberry Pi attacker-side agent, target desktop application,
+          API server, AI agent, and database into a controlled assessment environment.
+          WebSockets carry low-latency logs and reports, while local persistence keeps scan
+          history and reports available after reconnects.
+        </p>
+        <ul class="check-list">
+          <li>Raspberry Pi operates as a secured Wi-Fi access point and gateway.</li>
+          <li>C++ and Qt power the desktop applications and interface workflow.</li>
+          <li>SQLite stores scan history, logs, reports, and local application state.</li>
+          <li>Nmap, Wireshark, Burp Suite, Semgrep, and firewall tooling support assessment and hardening.</li>
+        </ul>
+      </div>
+      <figure class="media-frame">
+        <img src="assets/images/architecture.png" alt="BugsBunny system architecture showing API, AI agent, database, GUI, attacker device, and target network">
+        <figcaption>Architecture snapshot from the project plan.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section pipeline" aria-labelledby="pipeline-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">Assessment Flow</p>
+        <h2 id="pipeline-title">From approval to actionable report.</h2>
+      </div>
+      <div class="steps">
+        <article>
+          <span>01</span>
+          <h3>Register</h3>
+          <p>The target app authenticates and receives a unique device identity.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Approve</h3>
+          <p>The target user grants permission before any scan or test starts.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Scan</h3>
+          <p>The Pi agent collects ports, services, metadata, and relevant security signals.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Analyze</h3>
+          <p>The AI layer maps findings to CVEs, risk levels, and practical mitigation steps.</p>
+        </article>
+        <article>
+          <span>05</span>
+          <h3>Report</h3>
+          <p>Users receive a structured report and can ask follow-up questions in an AI chat.</p>
+        </article>
+      </div>
+      <details class="flow-details">
+        <summary>View full project flowchart</summary>
+        <img src="assets/images/flow.png" alt="Full BugsBunny project flowchart for target login, attacker scan, AI analysis, reporting, and optional simulation">
+      </details>
+    </section>
+
+    <section class="section divisions" id="divisions">
+      <div class="section-heading">
+        <p class="eyebrow">Divisions</p>
+        <h2>Six tracks working as one security product team.</h2>
+      </div>
+      <div class="division-grid" id="divisionGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="section team-section" id="team">
+      <div class="team-toolbar">
+        <div>
+          <p class="eyebrow">Project Team</p>
+          <h2>People, responsibilities, and division leadership.</h2>
+        </div>
+        <label class="filter-control">
+          <span>Filter</span>
+          <select id="divisionFilter" aria-label="Filter team by division">
+            <option value="All">All Divisions</option>
+          </select>
+        </label>
+      </div>
+      <div class="team-grid" id="teamGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="section closing">
+      <img src="assets/images/uni-logo.png" alt="Borg Al Arab Technological University logo">
+      <div>
+        <p class="eyebrow">Academic Context</p>
+        <h2>Built as a graduation project for accessible, educational cybersecurity.</h2>
+        <p>
+          The project demonstrates how AI, embedded systems, networking, and ethical cybersecurity
+          can become a compact self-contained platform for individuals, students, and small organizations.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>BugsBunny Hardware</span>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Dashboard page — page-specific styles only. Shared component styles
+   (nav, section-header, project-card, credential-box, upcoming-item,
+   cyber-btn, sys-specs, engine-subtitle, social-dock, etc.) already live
+   in css/style.css and are reused as-is here for visual consistency with
+   the rest of the site.
+   ========================================================================== */
+
+/* Clears the fixed nav bar since this page has no full-height hero section
+   to push content below it. */
+.dashboard-page {
+    padding-top: 9rem;
+    padding-bottom: 6rem;
+}
+
+.dashboard-header {
+    margin-bottom: 3rem;
+}
+
+.dashboard-lede {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 640px;
+}
+
+/* Stat strip */
+.stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 4rem;
+}
+
+.stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: rgba(0, 229, 255, 0.4);
+    transform: translateY(-4px);
+}
+
+.stat-icon {
+    font-size: 1.4rem;
+    color: var(--accent-cyan);
+    margin-bottom: 0.75rem;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    color: var(--text-bright);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Currently building + focus */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.dashboard-panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.dashboard-panel .engine-subtitle {
+    margin-top: 0;
+}
+
+.dashboard-panel .upcoming-list {
+    margin-top: 0;
+}
+
+.dashboard-panel .view-all-backlog-link {
+    justify-content: flex-start;
+    margin-bottom: 0;
+}
+
+.dashboard-specs {
+    margin-top: 0.5rem;
+}
+
+/* Featured projects + credentials sections */
+.dashboard-section {
+    margin-bottom: 5rem;
+}
+
+.dashboard-project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem 1.5rem;
+    padding-top: 12px;
+}
+
+/* Compact variant of .project-card for a 3-up grid instead of the homepage's
+   single-column stack — smaller padding and a shorter description clamp. */
+.dashboard-project-grid .project-card {
+    padding: 2rem 1.75rem;
+    grid-template-columns: min-content 1fr;
+}
+
+.dashboard-project-grid .card-content h3 {
+    font-size: 1.3rem;
+}
+
+.dashboard-project-grid .card-content p {
+    font-size: 0.88rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-project-grid .card-icon {
+    font-size: 2.2rem;
+}
+
+/* CTA section — same visual language as the homepage contact-cta, with its
+   own copy and button row instead of reusing index.html's generated classes. */
+.dashboard-cta-section {
+    padding-top: 0;
+}
+
+.dashboard-cta-heading {
+    font-family: var(--font-display);
+    font-size: 2.75rem;
+    color: var(--text-bright);
+    margin-bottom: 1rem;
+}
+
+.dashboard-cta-text {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+}
+
+.dashboard-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.dashboard-cta-secondary {
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+}
+
+/* One orchestrated page-load reveal for the stat strip + the two panels —
+   everything else stays still so this doesn't turn into scattered motion. */
+.stat-card,
+.dashboard-panel {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: dashFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.05s; }
+.stat-card:nth-child(2) { animation-delay: 0.12s; }
+.stat-card:nth-child(3) { animation-delay: 0.19s; }
+.stat-card:nth-child(4) { animation-delay: 0.26s; }
+.dashboard-grid .dashboard-panel:nth-child(1) { animation-delay: 0.32s; }
+.dashboard-grid .dashboard-panel:nth-child(2) { animation-delay: 0.38s; }
+
+@keyframes dashFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .stat-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .stat-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-page {
+        padding-top: 7rem;
+    }
+
+    .dashboard-cta-heading {
+        font-size: 2.1rem;
+    }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather — Ahmed Sobhy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="sky-clear-day">
+
+<canvas id="sky-canvas"></canvas>
+<div class="sky-veil"></div>
+
+<div class="wrap">
+
+    <header class="masthead glass">
+        <div class="brand">
+            <i class="fas fa-cloud-sun brand-mark"></i>
+            <span>Weather</span>
+        </div>
+
+        <div class="searchbar">
+            <input type="text" id="city-input" placeholder="Search a city…" autocomplete="off">
+            <button class="btn" id="search-btn"><i class="fas fa-magnifying-glass"></i></button>
+            <button class="btn icon-only" id="location-btn" title="Use my location"><i class="fas fa-location-crosshairs"></i></button>
+        </div>
+
+        <div class="unit-toggle">
+            <button class="unit-option" data-unit="c">°C</button>
+            <button class="unit-option" data-unit="f">°F</button>
+        </div>
+    </header>
+
+    <div id="alert-container" class="glass">
+        <div class="alert">
+            <i class="fas fa-triangle-exclamation"></i>
+            <div><strong>Heads up —</strong> <span id="alert-text"></span></div>
+        </div>
+    </div>
+
+    <div class="loader" id="loader">
+        <div class="loader-orb"></div>
+        <span>Reading the sky…</span>
+    </div>
+
+    <div id="dashboard-content">
+
+        <div class="grid-row">
+
+            <section class="panel glass current-weather">
+                <div class="current-body">
+                    <p class="place-date" id="date-time">—</p>
+                    <h1 class="place-name" id="city-name">—</h1>
+
+                    <div class="temp-row">
+                        <span class="temp-value"><span id="current-temp">--</span>°</span>
+                        <i id="current-icon" class="fas fa-sun weather-icon"></i>
+                    </div>
+                    <p class="condition-desc">
+                        <span id="weather-desc">—</span>
+                        <span class="feels-like">feels like <span id="feels-like-temp">--</span>°</span>
+                    </p>
+
+                    <div class="detail-pair">
+                        <div class="detail"><span>Humidity</span><strong id="current-humidity">--%</strong></div>
+                        <div class="detail"><span>Wind</span><strong id="current-wind">-- km/h</strong></div>
+                        <div class="detail"><span>UV index</span><strong id="current-uv">--</strong></div>
+                        <div class="detail"><span>Sunrise</span><strong id="current-sunrise">--</strong></div>
+                        <div class="detail"><span>Sunset</span><strong id="current-sunset">--</strong></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel glass">
+                <div class="panel-heading">Next 24 hours</div>
+                <div class="chart-body">
+                    <div class="chart-box"><canvas id="hourlyChart"></canvas></div>
+                </div>
+            </section>
+
+        </div>
+
+        <section class="panel glass">
+            <div class="panel-heading">7-day outlook</div>
+            <div class="forecast-strip" id="forecast-grid"></div>
+        </section>
+
+        <div class="foot">
+            <a href="../index.html"><i class="fas fa-arrow-left"></i> Back to portfolio</a>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

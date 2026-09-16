@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Station | Ahmed Sobhy</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated sky layer: script.js paints this every frame based on
+         the real weather code + day/night flag. The veil sits above it
+         to keep the glass panels legible over busy skies. -->
+    <canvas id="sky-canvas"></canvas>
+    <div class="sky-veil"></div>
+
+    <div class="wrap">
+
+        <header class="masthead glass">
+            <div class="brand">
+                <i class="fas fa-cloud-sun brand-mark"></i>
+                Weather Station
+            </div>
+            <div class="searchbar">
+                <input type="text" id="city-input" placeholder="Search a city…" aria-label="Search a city" autocomplete="off">
+                <button class="btn" id="search-btn">Search</button>
+                <button class="btn icon-only" id="location-btn" title="Use my location" aria-label="Use my current location">
+                    <i class="fas fa-location-crosshairs"></i>
+                </button>
+                <button class="btn icon-only" id="fav-btn" title="Save this city" aria-label="Save this city to favorites">
+                    <i class="fas fa-star" id="fav-icon"></i>
+                </button>
+            </div>
+            <div class="masthead-controls">
+                <div class="unit-toggle" id="unit-toggle" role="group" aria-label="Temperature unit">
+                    <button class="unit-option is-active" id="unit-c" data-unit="c">°C</button>
+                    <button class="unit-option" id="unit-f" data-unit="f">°F</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="fav-chips" id="fav-chips"></div>
+
+        <div id="alert-container" class="glass" role="status" aria-live="polite">
+            <div class="alert">
+                <i class="fas fa-triangle-exclamation"></i>
+                <span id="alert-text"></span>
+            </div>
+        </div>
+
+        <div class="loader" id="loader">
+            <div class="loader-orb"></div>
+            <span>Fetching current conditions…</span>
+        </div>
+
+        <div id="dashboard-content" style="display: none;">
+
+            <div class="grid-row">
+                <div class="glass panel">
+                    <div class="current-body">
+                        <div class="place-name" id="city-name">—</div>
+                        <div class="place-date" id="date-time">—</div>
+
+                        <div class="temp-row">
+                            <i id="current-icon" class="fas fa-cloud weather-icon"></i>
+                            <div class="temp-value"><span id="current-temp">—</span>°</div>
+                        </div>
+                        <div class="condition-desc">
+                            <span id="weather-desc">—</span>
+                            <span class="feels-like">Feels like <span id="feels-like-temp">—</span>°</span>
+                        </div>
+
+                        <div class="detail-pair">
+                            <div class="detail">
+                                <span>Humidity</span>
+                                <strong id="current-humidity">—%</strong>
+                            </div>
+                            <div class="detail">
+                                <span>Wind</span>
+                                <strong id="current-wind">— km/h</strong>
+                            </div>
+                            <div class="detail">
+                                <span>UV index</span>
+                                <strong id="current-uv">—</strong>
+                            </div>
+                            <div class="detail">
+                                <span>Air quality</span>
+                                <strong id="current-aqi">—</strong>
+                            </div>
+                            <div class="detail">
+                                <span>Sunrise</span>
+                                <strong id="current-sunrise">—</strong>
+                            </div>
+                            <div class="detail">
+                                <span>Sunset</span>
+                                <strong id="current-sunset">—</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass panel">
+                    <div class="panel-heading">Next 24 hours</div>
+                    <div class="chart-body">
+                        <div class="chart-box">
+                            <canvas id="hourlyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass panel" id="prayer-panel">
+                <div class="panel-heading with-sub">
+                    <span>Prayer Times</span>
+                    <span class="hijri-date" id="hijri-date">—</span>
+                </div>
+                <div class="prayer-body">
+                    <div class="next-prayer">
+                        <span class="np-label">Next prayer</span>
+                        <span class="np-name" id="next-prayer-name">—</span>
+                        <span class="np-countdown" id="next-prayer-countdown">—</span>
+                    </div>
+                    <div class="prayer-strip" id="prayer-grid"></div>
+                </div>
+            </div>
+
+            <div class="glass panel">
+                <div class="panel-heading">Next 7 days</div>
+                <div class="forecast-strip" id="forecast-grid"></div>
+            </div>
+
+            <div class="foot">
+                <a href="../index.html">Back to portfolio</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

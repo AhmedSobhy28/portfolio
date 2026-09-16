@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسماء الله الحسنى</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="floating-controls">
+        <button id="themeToggle" class="float-btn" aria-label="تغيير المظهر" title="تغيير المظهر">🌙</button>
+        <button id="fontIncrease" class="float-btn" aria-label="تكبير الخط" title="تكبير الخط">A+</button>
+        <button id="fontDecrease" class="float-btn" aria-label="تصغير الخط" title="تصغير الخط">A-</button>
+    </div>
+
+    <header class="header glass" id="mainHeader">
+        <h1>أسماء الله الحسنى</h1>
+        <input type="text" id="searchInput" class="search-input glass" autocomplete="off" placeholder="🔍 ابحث عن اسم، معنى، أو تفسير...">
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-target="audioView">عرض النغمة</button>
+            <button class="tab-btn" data-target="listView">قائمة الأسماء</button>
+            <button class="tab-btn kids-tab" data-target="kidsView">ركن الأطفال 🎈</button>
+        </nav>
+    </header>
+
+    <main id="audioView" class="view-section active">
+        <div class="audio-controls glass">
+            <p>استمع وتدبر معاني أسماء الله الحسنى</p>
+            <button id="playBtn" class="btn primary-btn">تشغيل النغمة 🎵</button>
+            <button id="pauseBtn" class="btn outline-btn" style="display: none;">إيقاف ⏸</button>
+            <audio id="audioPlayer" src="99_Names_of_Allah_Al_Asma_Ul_Husna_The_first_pillar_of_īmān_.mp3" preload="auto"></audio>
+        </div>
+
+        <div id="currentNameDisplay" class="current-name-display glass" style="display: none;">
+            <h2 id="displayName"></h2>
+            <div class="details">
+                <p id="displayMeaning" class="meaning"></p>
+                <p id="displayExplanation" class="explanation"></p>
+            </div>
+        </div>
+        <div class="names-grid" id="audioNamesContainer"></div>
+    </main>
+
+    <main id="listView" class="view-section" style="display: none;">
+        <div class="list-container" id="listNamesContainer"></div>
+    </main>
+
+    <main id="kidsView" class="view-section" style="display: none;">
+        <div class="kids-header glass">
+            <h2>مرحباً بك في عالم الأسماء الحسنى 🌟</h2>
+            <div class="stars-counter">نجومك: <span id="kidsStarsCount">0</span> ⭐</div>
+        </div>
+        <nav class="kids-sub-tabs">
+            <button class="kids-tab-btn active" data-game="interactiveMapGame">خريطة الرحلة 🗺️</button>
+            <button class="kids-tab-btn" data-game="galaxyGame">مجرة الأسماء 🌌</button>
+        </nav>
+        <div class="kids-games-container">
+            <div id="interactiveMapGame" class="game-section glass kids-game-view">
+                <h3>رحلة النور 🗺️</h3>
+                <p>جاوب على السؤال بشكل صحيح عشان تفتح المحطة اللي بعدها وتجمع النجوم!</p>
+                <div class="map-container" id="mapContainer"></div>
+                <div id="quizModal" class="glass-modal" style="display: none;">
+                    <div class="modal-content glass">
+                        <h2 id="quizName" class="quiz-title"></h2>
+                        <p class="quiz-question">ما هو المعنى الصحيح لهذا الاسم؟</p>
+                        <div id="quizOptions" class="quiz-options"></div>
+                        <button id="closeQuizBtn" class="btn outline-btn" style="margin-top: 15px;">إغلاق</button>
+                    </div>
+                </div>
+            </div>
+            <div id="galaxyGame" class="game-section kids-game-view" style="display: none; padding: 0; border: none; background: transparent;">
+                <div class="galaxy-wrapper">
+                    <div class="galaxy-ui-header">
+                        <h3 style="margin: 0; color: #fff; text-shadow: 0 0 10px var(--gold);">مجرة الأسماء 🌌</h3>
+                        <p style="margin: 5px 0 0 0; color: #ccc; font-size: 0.9rem;">استكشف الكواكب المضيئة لمعرفة أسرارها...</p>
+                        <button id="refreshGalaxyBtn" class="btn primary-btn" style="padding: 5px 15px; font-size: 0.9rem; margin-top: 10px;">استكشاف كواكب جديدة 🚀</button>
+                    </div>
+                    <div class="galaxy-container" id="galaxyContainer"></div>
+                </div>
+                <div id="planetModal" class="glass-modal" style="display: none;">
+                    <div class="modal-content galaxy-modal">
+                        <h2 id="planetName" class="planet-title"></h2>
+                        <p id="planetMeaning" class="planet-desc"></p>
+                        <button id="closePlanetBtn" class="btn primary-btn" style="margin-top: 20px;">استمر في الاستكشاف 🚀</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="shareModal" class="glass-modal" style="display: none;">
+        <div class="modal-content glass" style="max-width: 400px;">
+            <h3 style="color: var(--gold); font-family: 'Amiri', serif; font-size: 2rem; margin-top: 0;">مشاركة كصورة 📸</h3>
+            <p style="margin-bottom: 25px; font-weight: bold;">اختر المظهر الذي تفضله للصورة:</p>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <button id="shareLightBtn" class="btn" style="background: #f0f4f8; color: #102a43; border: 2px solid #d4af37; font-size: 1.2rem; cursor: pointer;">☀️ المظهر النهاري</button>
+                <button id="shareDarkBtn" class="btn" style="background: #0b1320; color: #f8fafc; border: 2px solid #d4af37; font-size: 1.2rem; cursor: pointer;">🌙 المظهر الليلي</button>
+            </div>
+            <button id="closeShareModalBtn" class="btn outline-btn" style="margin-top: 25px; width: 100%;">إلغاء</button>
+        </div>
+    </div>
+
+    <div class="capture-area">
+        <div id="captureCard" class="capture-card">
+            <h2 id="capName" class="cap-name"></h2>
+            <p id="capMeaning" class="cap-meaning"></p>
+            <p id="capExplanation" class="cap-explanation"></p>
+            <div class="cap-footer">تم الإنشاء من موقع أسماء الله الحسنى التفاعلي</div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

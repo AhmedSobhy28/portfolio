@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Sobhy | Dashboard</title>
+
+    <meta name="description" content="A quick overview of Ahmed Sobhy's work — shipped projects, active builds, and credentials in progress.">
+    <link rel="canonical" href="https://ahmedsobhy28.github.io/portfolio/dashboard.html">
+
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <nav class="cyber-nav">
+        <img src="logo.png" alt="Logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="index.html#hero">00. ROOT</a>
+            <a href="index.html#about">01. ABOUT</a>
+            <a href="index.html#engines">02. PROJECTS</a>
+            <a href="index.html#credentials">03. CREDENTIALS</a>
+            <a href="index.html#tech">04. TECH</a>
+            <a href="contact.html">05. CONTACT</a>
+            <span class="nav-separator"></span>
+            <a href="dashboard.html" class="active">06. DASHBOARD</a>
+        </div>
+        <div class="mobile-menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="scroll-progress" id="scroll-progress"></div>
+    </nav>
+
+    <div id="main-content">
+        <div class="ambient-glow"></div>
+        <div class="cyber-wave-container">
+            <svg class="cyber-wave-svg" viewBox="0 0 100 1000" preserveAspectRatio="none">
+                <path
+                    d="M50,0 Q90,50 50,100 T50,200 Q90,250 50,300 T50,400 Q90,450 50,500 T50,600 Q90,650 50,700 T50,800 Q90,850 50,900 T50,1000"
+                    fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" />
+            </svg>
+        </div>
+
+        <div class="content-wrapper dashboard-page">
+
+            <header class="dashboard-header">
+                <div class="section-header">
+                    <h2 class="section-title">06 // Dashboard</h2>
+                    <div class="header-line"></div>
+                </div>
+                <p class="dashboard-lede">
+                    A quick snapshot of where things stand — what's shipped, what's actively being built,
+                    and where the credentials are at.
+                </p>
+            </header>
+
+            <!-- Stat strip -->
+            <section class="stat-strip">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                    <div class="stat-value">9</div>
+                    <div class="stat-label">Projects Shipped</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-code-branch"></i></div>
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Active Builds</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Credentials Tracked</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <div class="stat-value">23</div>
+                    <div class="stat-label">Tools & Technologies</div>
+                </div>
+            </section>
+
+            <!-- Currently building + focus -->
+            <section class="dashboard-grid">
+                <div class="dashboard-panel">
+                    <h3 class="engine-subtitle"><i class="fa-solid fa-code-branch"></i> Currently Building</h3>
+                    <div class="upcoming-list">
+                        <div class="upcoming-item" data-theme="cobalt">
+                            <div class="upcoming-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <div class="upcoming-main">
+                                <div class="upcoming-title-row">
+                                    <h4>Smart Study Planner</h4>
+                                    <div class="card-tags"><span>NestJS</span><span>PostgreSQL</span></div>
+                                </div>
+                                <p>Three-phase scheduling engine: weighted priority, SM-2 spaced repetition,
+                                    greedy slot assignment.</p>
+                                <div class="progress-row">
+                                    <div class="progress-track"><div class="progress-fill" data-progress="65"></div></div>
+                                    <span class="progress-percent">65%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="upcoming-item" data-theme="forest">
+                            <div class="upcoming-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                            <div class="upcoming-main">
+                                <div class="upcoming-title-row">
+                                    <h4>Fresh Produce Delivery</h4>
+                                    <div class="card-tags"><span>React</span><span>NestJS</span></div>
+                                </div>
+                                <p>A dedicated single-vendor storefront for an actual Alexandria store — not a
+                                    marketplace.</p>
+                                <div class="progress-row">
+                                    <div class="progress-track"><div class="progress-fill" data-progress="50"></div></div>
+                                    <span class="progress-percent">50%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="view-all-backlog-link">
+                        <a href="index.html#upcoming" class="card-link">See all active builds & ideas <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="dashboard-panel">
+                    <h3 class="engine-subtitle"><i class="fa-solid fa-bullseye"></i> Focus Right Now</h3>
+                    <ul class="sys-specs dashboard-specs">
+                        <li><i class="fa-solid fa-circle-check"></i> <span>Status:</span> Available for freelance work</li>
+                        <li><i class="fa-solid fa-graduation-cap"></i> <span>Studying:</span> Borg El Arab Technological
+                            University — Full-Stack Web Dev</li>
+                        <li><i class="fa-solid fa-network-wired"></i> <span>Also:</span> Networking & security track
+                            (CCNA, Network+, Linux)</li>
+                        <li><i class="fa-solid fa-location-dot"></i> <span>Based in:</span> Alexandria, Egypt — open to
+                            remote clients worldwide</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Featured projects -->
+            <section class="dashboard-section">
+                <h3 class="engine-subtitle"><i class="fa-solid fa-star"></i> Featured Projects</h3>
+                <div class="dashboard-project-grid">
+
+                    <div class="project-card" data-theme="cyan">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-heart-pulse"></i> HEALTHCARE</div>
+                        <div class="card-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+                        <div class="card-content">
+                            <h3>MediTrust Core</h3>
+                            <div class="card-tags"><span>PHP</span><span>MySQL</span><span>QR Auth</span></div>
+                            <p>Graduation web application with an admin dashboard and QR-code authenticated
+                                medical tracking.</p>
+                            <div class="card-links">
+                                <a href="http://meditrust.scienceontheweb.net/" class="card-link">View Project <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-theme="green">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fas fa-shield-halved"></i> SEC_PROTOCOL</div>
+                        <div class="card-icon"><i class="fas fa-route"></i></div>
+                        <div class="card-content">
+                            <h3>Cyber Security Roadmap</h3>
+                            <div class="card-tags"><span>InfoSec</span><span>Roadmap</span></div>
+                            <p>Interactive 30-week, 7-phase roadmap from zero knowledge to a first security
+                                role.</p>
+                            <div class="card-links">
+                                <a href="https://cybersec-roadmap-kappa.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-link">View Engine <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-theme="blue">
+                        <div class="card-interactive-bg"></div>
+                        <div class="project-label"><i class="fa-solid fa-qrcode"></i> UTILITY</div>
+                        <div class="card-icon"><i class="fa-solid fa-qrcode"></i></div>
+                        <div class="card-content">
+                            <h3>Dynamic QR Generator</h3>
+                            <div class="card-tags"><span>Next.js</span><span>React</span></div>
+                            <p>Full-stack QR generation tool with custom designs and dynamic analytics
+                                tracking.</p>
+                            <div class="card-links">
+                                <a href="https://dynamic-qr-gen-zeta.vercel.app/" class="card-link">View Project <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="view-all-backlog-link">
+                    <a href="index.html#engines" class="card-link">View all projects <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </section>
+
+            <!-- Credentials snapshot -->
+            <section class="dashboard-section">
+                <h3 class="engine-subtitle"><i class="fa-solid fa-certificate"></i> Credentials</h3>
+                <div class="credentials-grid">
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-solid fa-code cert-icon"></i>
+                        <h4>Full-Stack Web Development</h4>
+                        <span class="credential-issuer">Borg El Arab Technological University</span>
+                        <span class="credential-status">Coursework</span>
+                        <p>Academic track covering full-stack application development</p>
+                    </div>
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-solid fa-network-wired cert-icon"></i>
+                        <h4>CCNA</h4>
+                        <span class="credential-issuer">Cisco / Jeremy's IT Lab</span>
+                        <span class="credential-status">In Progress</span>
+                        <p>Networking fundamentals & routing/switching</p>
+                    </div>
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-solid fa-shield-halved cert-icon"></i>
+                        <h4>CISSP</h4>
+                        <span class="credential-issuer">(ISC)² — Self-Study</span>
+                        <span class="credential-status">In Progress</span>
+                        <p>Security domains & frameworks</p>
+                    </div>
+                    <div class="credential-box">
+                        <span class="credential-seal"><i class="fa-solid fa-certificate"></i></span>
+                        <i class="fa-brands fa-linux cert-icon"></i>
+                        <h4>Linux Fundamentals</h4>
+                        <span class="credential-issuer">Self-Study</span>
+                        <span class="credential-status">Ongoing</span>
+                        <p>Command line, system administration & hardening basics</p>
+                    </div>
+                </div>
+                <div class="view-all-backlog-link">
+                    <a href="index.html#credentials" class="card-link">View all credentials <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="contact-section dashboard-cta-section">
+                <div class="contact-cta">
+                    <h3 class="dashboard-cta-heading">Have something in mind?</h3>
+                    <p class="dashboard-cta-text">Got a project that needs a secure backend, a fast front end, or
+                        both? I'd like to hear about it.</p>
+                    <div class="dashboard-cta-buttons">
+                        <a href="contact.html" class="cyber-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Get In Touch
+                        </a>
+                        <a href="Ahmed_Sobhy_CV.pdf" target="_blank" rel="noopener noreferrer" class="cyber-btn dashboard-cta-secondary">
+                            <i class="fa-solid fa-file-arrow-down"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-dock">
+                    <a href="https://github.com/AhmedSobhy28" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ahmed-sobhy-mohamed-150643279/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bs6wRe%2BDoQ2WMrE2DXJuPYg%3D%3D"
+                        target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/201099886353" target="_blank" rel="noopener noreferrer" class="social-icon" title="WhatsApp"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:ah.sobhy07@gmail.com" class="social-icon" title="Direct Email"><i
+                            class="fa-solid fa-envelope"></i></a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

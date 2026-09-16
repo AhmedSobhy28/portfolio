@@ -1,0 +1,269 @@
+/* Contact page styles — extracted from contact.html's former inline <style> block */
+
+/* --- Bento panels: the three cards (identity / form / availability) share this
+   base. This class was referenced on all three panels but never actually defined
+   anywhere — they were rendering with no card styling at all. Built here to match
+   the same glass-card language used for credentials/tech boxes on the main page
+   (--bg-surface, --border-glass, subtle rise-in on load). --- */
+.bento-panel {
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  backdrop-filter: blur(10px);
+  padding: 2.25rem;
+  opacity: 0;
+  animation: bentoPanelReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes bentoPanelReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+/* 1. Page heading — plain, on-brand typography instead of the glitch/RGB-split
+   effect. Matches the section-title treatment used on the main page. */
+.contact-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--text-bright);
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+}
+
+/* 2. Cyber Inputs */
+.form-group { position: relative; margin-bottom: 2.5rem; }
+.form-group label {
+    position: absolute; top: -10px; left: 15px; 
+    background: #030507; padding: 0 10px; font-size: 0.7rem; 
+    color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;
+    z-index: 5;
+}
+.cyber-input {
+    width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--border-glass);
+    color: var(--text-bright); font-family: var(--font-mono); font-size: 0.9rem;
+    padding: 1.5rem; outline: none; transition: 0.3s; border-radius: 2px;
+    position: relative;
+}
+.cyber-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: inset 0 0 20px rgba(0, 229, 255, 0.08), 0 0 15px rgba(0, 229, 255, 0.2);
+}
+
+/* 3. Availability panel — plain glass box, same family as the rest of the site
+   rather than a green "radar" terminal readout. */
+.radar-box {
+    position: relative;
+    border: 1px solid var(--border-glass); background: rgba(0,0,0,0.2);
+    padding: 1.5rem; border-radius: 6px;
+}
+.availability-list {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: 1.25rem;
+    color: var(--text-muted); font-size: 0.85rem; font-family: var(--font-mono);
+}
+.availability-list li {
+    display: flex; align-items: flex-start; gap: 12px; line-height: 1.4;
+}
+.availability-list i {
+    color: var(--accent-cyan); font-size: 1rem; margin-top: 2px; width: 18px; text-align: center;
+}
+
+/* 4. Social List Buttons (vertical button grid) */
+.social-list-btn {
+    background: transparent;
+    border: 1px solid var(--border-glass);
+    color: var(--text-muted);
+    padding: 1rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    text-decoration: none;
+    width: 100%; 
+}
+.social-list-btn i {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    width: 25px; 
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.social-list-btn span {
+    font-weight: 500;
+}
+.social-list-btn:hover {
+    background: rgba(0, 229, 255, 0.05);
+    border-color: var(--accent-cyan);
+    color: var(--text-bright);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.1);
+}
+.social-list-btn:hover i {
+    color: var(--accent-cyan); 
+}
+
+/* Overrides for Contact Layout */
+.contact-layout { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; padding: 6rem 4%; max-width: 1600px; margin: 0 auto; position: relative; z-index: 10;}
+.panel-identity { grid-column: span 3; }
+.panel-form { grid-column: span 6; }
+.panel-terminal { grid-column: span 3; }
+
+@media (max-width: 1024px) {
+    .panel-identity, .panel-form, .panel-terminal { grid-column: span 12; }
+}
+/* Auto-extracted from former inline style="..." attributes on contact.html elements */
+
+.gen-ct-2 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--text-bright);
+}
+
+.gen-ct-3 {
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+}
+
+.gen-ct-4 {
+    color: var(--accent-cyan);
+    border-bottom: 1px solid var(--accent-cyan);
+}
+
+.gen-ct-5 {
+    animation-delay: 0.1s;
+}
+
+.gen-ct-7 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.gen-ct-8 {
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 229, 255, 0.05);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+.gen-ct-9 {
+    font-size: 2.5rem;
+    color: var(--accent-cyan);
+}
+
+.gen-ct-10 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.gen-ct-11 {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    margin: 1rem 0 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.gen-ct-15 {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gen-ct-16 {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: left;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    border-bottom: 1px dashed var(--border-glass);
+    padding-bottom: 8px;
+}
+
+.gen-ct-17 {
+    color: var(--accent-cyan);
+}
+
+.gen-ct-18 {
+    animation-delay: 0.2s;
+}
+
+.gen-ct-19 {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 3rem;
+}
+
+.gen-ct-20 {
+    width: 100%;
+    font-size: 1rem;
+    padding: 1.2rem;
+}
+
+.form-note {
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.form-note-success {
+    color: var(--accent-cyan);
+}
+.form-note-error {
+    color: #ff6b6b;
+}
+.form-note-error a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.gen-ct-22 {
+    animation-delay: 0.3s;
+}
+
+.gen-ct-23 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    color: var(--text-bright);
+}

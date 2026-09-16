@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Sobhy | Contact</title>
+
+    <link rel="icon" href="/logo.png" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+
+    <style>
+        /* Makes the profile photo fill the existing circular avatar frame
+           instead of the old placeholder icon. */
+        .contact-avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="cyber-wave-container">
+        <svg class="cyber-wave-svg" viewBox="0 0 100 1000" preserveAspectRatio="none">
+            <path d="M50,0 Q90,50 50,100 T50,200 Q90,250 50,300 T50,400 Q90,450 50,500 T50,600 Q90,650 50,700 T50,800 Q90,850 50,900 T50,1000" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" />
+        </svg>
+    </div>
+
+    <nav class="cyber-nav">
+        <div class="nav-logo gen-ct-2">AHMED SOBHY <span class="gen-ct-3">// CONTACT</span></div>
+        
+        <div class="nav-links">
+            <a href="index.html">00. Root</a>
+            <a href="dashboard.html">01. Dashboard</a>
+            <a href="contact.html" class="active gen-ct-4">02. Contact</a>
+        </div>
+
+        <div class="mobile-menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <main class="contact-layout">
+        
+        <aside class="bento-panel panel-identity gen-ct-5">
+            <div class="panel-label">Contact Info</div>
+            <div class="gen-ct-7">
+                <div class="gen-ct-8">
+                    <img src="profile.png" alt="Ahmed Sobhy" class="gen-ct-9 contact-avatar-img">
+                </div>
+                <h2 class="gen-ct-10">Ahmed Sobhy</h2>
+                <div class="gen-ct-11">Full-Stack Web Developer</div>
+
+                <!-- 🌟 شبكة الأزرار الجديدة -->
+                <div class="gen-ct-15">
+                    
+                    <!-- 🌟 العنوان المضاف -->
+                    <div class="gen-ct-16">
+                        <span class="gen-ct-17">></span> FIND ME ONLINE
+                    </div>
+
+                    <a href="https://github.com/AhmedSobhy28" target="_blank" class="social-list-btn" title="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ahmed-sobhy-mohamed-150643279/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bs6wRe%2BDoQ2WMrE2DXJuPYg%3D%3D" target="_blank" class="social-list-btn" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://wa.me/+201099886353" target="_blank" class="social-list-btn" title="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="mailto:ah.sobhy07@gmail.com" class="social-list-btn" title="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/198j52JkKv/" target="_blank" class="social-list-btn" title="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/ahmed.sobhy._?igsh=djVkcGoxcWpmZGtz" target="_blank" class="social-list-btn" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <section class="bento-panel panel-form gen-ct-18">
+            <div class="panel-label">Contact Form</div>
+            
+            <h1 class="contact-heading">GET IN TOUCH</h1>
+            <p class="gen-ct-19">Have a project in mind? Fill out the form below and I'll get back to you as soon as possible.</p>
+            
+            <form id="secure-form" class="cyber-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" class="cyber-input" placeholder="Enter your name" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" class="cyber-input" placeholder="you@example.com" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" rows="6" class="cyber-input" placeholder="Tell me about your project..." required></textarea>
+                </div>
+                
+                <button type="submit" class="cyber-btn gen-ct-20" id="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+                <p class="form-note" id="form-status">
+                    Sent straight to my inbox — I usually reply within 24 hours.
+                </p>
+            </form>
+        </section>
+
+        <aside class="bento-panel panel-terminal gen-ct-22">
+            <div class="panel-label">Availability</div>
+            <h3 class="gen-ct-23">Quick Info</h3>
+
+            <div class="radar-box">
+                <ul class="availability-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Open for freelance & remote work</li>
+                    <li><i class="fa-solid fa-clock"></i> Usually responds within 24 hours</li>
+                    <li><i class="fa-solid fa-envelope"></i> Email or WhatsApp preferred</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Based in Egypt, working with clients worldwide</li>
+                </ul>
+            </div>
+        </aside>
+
+    </main>
+
+    <script src="js/contact.js"></script>
+</body>
+</html>
